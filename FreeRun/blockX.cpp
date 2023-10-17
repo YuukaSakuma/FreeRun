@@ -135,7 +135,7 @@ void CBlockX::Uninit(void)
 //==============================================================
 void CBlockX::Update(void)
 {
-	CDebugProc *pDebugProc = CManager::GetDebugProc();
+	CDebugProc *pDebugProc = CManager::Get()->GetDebugProc();
 
 	m_pos = m_apModel[0]->GetPosition();
 
@@ -162,7 +162,7 @@ void CBlockX::Draw(void)
 	D3DXMATRIX mtxRot, mtxTrans;						//計算用マトリックス
 
 	LPDIRECT3DDEVICE9 pDevice;
-	CRenderer *pRenderer = CManager::GetRenderer();
+	CRenderer *pRenderer = CManager::Get()->GetRenderer();
 
 	//デバイスの取得
 	pDevice = pRenderer->GetDevice();

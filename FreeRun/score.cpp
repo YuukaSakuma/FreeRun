@@ -67,7 +67,7 @@ CScore *CScore::Create(D3DXVECTOR3 pos)
 //==============================================================
 HRESULT CScore::Init(void)
 {
-	CTexture * pTexture = CManager::GetTexturet();
+	CTexture * pTexture = CManager::Get()->GetTexturet();
 
 	m_nldxTexture = pTexture->Regist("data\\TEXTURE\\number.png");
 

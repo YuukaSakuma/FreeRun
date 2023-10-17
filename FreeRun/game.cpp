@@ -52,7 +52,7 @@ CGame::~CGame()
 //==============================================================
 HRESULT CGame::Init(void)
 {
-	CCamera *pCamera = CManager::GetCamera();		//カメラの情報取得
+	CCamera *pCamera = CManager::Get()->GetCamera();		//カメラの情報取得
 
 	/*CObject3D *p = CObject3D::Create();
 	p->SetPosition(D3DXVECTOR3(0.0f, 0.0f, 0.0f));
@@ -123,11 +123,11 @@ void CGame::Uninit(void)
 		m_pTime = NULL;	// 使用していない状態にする
 	}
 
-	if (m_pMap != nullptr)
+	if (m_pMap != NULL)
 	{
 		m_pMap->Uninit();
 		delete m_pMap;
-		m_pMap = nullptr;
+		m_pMap = NULL;
 	}
 
 
@@ -140,8 +140,8 @@ void CGame::Uninit(void)
 //==============================================================
 void CGame::Update(void)
 {
-	CDebugProc *pDebugProc = CManager::GetDebugProc();
-	CInputKeyboard *pInputKeyboard = CManager::GetInputKeybard();		//キーボードの情報取得
+	CDebugProc *pDebugProc = CManager::Get()->GetDebugProc();
+	CInputKeyboard *pInputKeyboard = CManager::Get()->GetInputKeybard();		//キーボードの情報取得
 						
 	D3DXVECTOR3 pos = m_pPlayerModel->GetPosition();
 
@@ -152,7 +152,7 @@ void CGame::Update(void)
 		m_pTime->Update();
 		if (m_pTime->GetNum() <= 0)
 		{// 時間切れ
-			CManager::GetFade()->Set(CScene::MODE_RESULT);
+			CManager::Get()->GetFade()->Set(CScene::MODE_RESULT);
 		}
 	}
 
@@ -162,14 +162,14 @@ void CGame::Update(void)
 	{
 		if (m_pPlayerModel->GetLife() <= 0)
 		{//体力がなくなった
-			CManager::GetFade()->Set(MODE_RESULT);
+			CManager::Get()->GetFade()->Set(MODE_RESULT);
 		}
 	}
 
 
 	if (pInputKeyboard->GetTrigger(DIK_RETURN) == true)
 	{//ENTERキー押したら
-		CManager::GetFade()->Set(MODE_RESULT);
+		CManager::Get()->GetFade()->Set(MODE_RESULT);
 		//CManager::SetMode(CScene::MODE_RESULT);
 	}
 

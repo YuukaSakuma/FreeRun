@@ -24,6 +24,7 @@
 #define WIDTH (50.0f)	//横幅
 #define HEIGHT (80.0f)	//高さ
 #define LIFE (150)		//体力
+#define SPEED (2.0f)		//素早さ
 
 //静的メンバ変数
 char *CPlayerModel::m_apFileName[15] =
@@ -264,7 +265,7 @@ void CPlayerModel::Uninit(void)
 //==============================================================
 void CPlayerModel::Update(void)
 {
-	CDebugProc *pDebugProc = CManager::GetDebugProc();
+	CDebugProc *pDebugProc = CManager::Get()->GetDebugProc();
 
 	//位置の取得
 	m_pos = GetPosition();
@@ -315,7 +316,7 @@ void CPlayerModel::Draw(void)
 	D3DXMATRIX mtxRot, mtxTrans;						//計算用マトリックス
 
 	LPDIRECT3DDEVICE9 pDevice;
-	CRenderer *pRenderer = CManager::GetRenderer();
+	CRenderer *pRenderer = CManager::Get()->GetRenderer();
 
 	//デバイスの取得
 	pDevice = pRenderer->GetDevice();
@@ -347,8 +348,8 @@ void CPlayerModel::Draw(void)
 //==============================================================
 void CPlayerModel::Control(void)
 {
-	CInputKeyboard *pInputKeyboard = CManager::GetInputKeybard();
-	CCamera *pCmamera = CManager::GetCamera();
+	CInputKeyboard *pInputKeyboard = CManager::Get()->GetInputKeybard();
+	CCamera *pCmamera = CManager::Get()->GetCamera();
 	D3DXVECTOR3 CameraRot = pCmamera->GetRotation();
 
 
@@ -372,7 +373,7 @@ void CPlayerModel::Control(void)
 
 	if (pInputKeyboard->GetTrigger(DIK_SPACE) == true && m_bJump == false)
 	{
-		m_pMotion->Set(m_pMotion->MOTION_JUMP);
+		//m_pMotion->Set(m_pMotion->MOTION_JUMP);
 
 		//ジャンプする
 		m_move.y = 24.0f;
@@ -399,18 +400,18 @@ void CPlayerModel::Screen(void)
 {
 	if (m_pos.y <= /*-50*/0.0f)
 	{//画面下に出たら
-		if (m_bJump == true)
-		{//ジャンプしてたら
+		//if (m_bJump == true)
+		//{//ジャンプしてたら
 
-		 //着地
-			m_pMotion->Set(m_pMotion->MOTION_LAND);
-		}
+		// //着地
+		//	m_pMotion->Set(m_pMotion->MOTION_LAND);
+		//}
 
-		if (m_pMotion->IsFinish() == true)
-		{//終了したら
+		//if (m_pMotion->IsFinish() == true)
+		//{//終了したら
 
 			m_bLand = true;		//着地した
-		}
+		//}
 
 		m_pos.y = 0.0f;
 		m_move.y = 0.0f;
@@ -445,9 +446,9 @@ void CPlayerModel::SetMotion(void)
 //==============================================================
 void CPlayerModel::Walk(void)
 {
-	CDebugProc *pDebugProc = CManager::GetDebugProc();
-	CInputKeyboard *pInputKeyboard = CManager::GetInputKeybard();
-	CCamera *pCmamera = CManager::GetCamera();
+	CDebugProc *pDebugProc = CManager::Get()->GetDebugProc();
+	CInputKeyboard *pInputKeyboard = CManager::Get()->GetInputKeybard();
+	CCamera *pCmamera = CManager::Get()->GetCamera();
 	D3DXVECTOR3 CameraRot = pCmamera->GetRotation();
 
 
@@ -465,8 +466,8 @@ void CPlayerModel::Walk(void)
 
 		if (m_nCntStart <= 0)
 		{
-			m_move.x += cosf(CameraRot.y + D3DX_PI * 0.5f) * 0.5f;
-			m_move.z += sinf(CameraRot.y + D3DX_PI * 0.5f) * 0.5f;
+			m_move.x += cosf(CameraRot.y + D3DX_PI * 0.5f) * SPEED;
+			m_move.z += sinf(CameraRot.y + D3DX_PI * 0.5f) * SPEED;
 
 			m_fRotDest = -CameraRot.y + D3DX_PI * 1.0f;
 
@@ -482,8 +483,8 @@ void CPlayerModel::Walk(void)
 		//キーが押されたとき
 		if (pInputKeyboard->GetPress(DIK_A) == true)
 		{//Aキーが押された
-			m_move.x += cosf(CameraRot.y + -D3DX_PI * 0.5f) * 0.5f;
-			m_move.z += sinf(CameraRot.y + -D3DX_PI * 0.5f) * 0.5f;
+			m_move.x += cosf(CameraRot.y + -D3DX_PI * 0.5f) * SPEED;
+			m_move.z += sinf(CameraRot.y + -D3DX_PI * 0.5f) * SPEED;
 
 			m_fRotDest = -CameraRot.y + D3DX_PI * 0.0f;
 
@@ -491,8 +492,8 @@ void CPlayerModel::Walk(void)
 		}
 		else if (pInputKeyboard->GetPress(DIK_D) == true)
 		{//Dキーが押された
-			m_move.x += cosf(CameraRot.y + D3DX_PI * 0.5f) * 0.5f;
-			m_move.z += sinf(CameraRot.y + D3DX_PI * 0.5f) * 0.5f;
+			m_move.x += cosf(CameraRot.y + D3DX_PI * 0.5f) * SPEED;
+			m_move.z += sinf(CameraRot.y + D3DX_PI * 0.5f) * SPEED;
 
 			m_fRotDest = -CameraRot.y + D3DX_PI * 1.0f;
 

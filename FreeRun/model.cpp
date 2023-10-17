@@ -52,7 +52,7 @@ CModel::~CModel()
 //==============================================================
 HRESULT CModel::Load(const char *pFilename)
 {
-	LPDIRECT3DDEVICE9 pDevice = CManager::GetRenderer()->GetDevice();		//デバイスの取得
+	LPDIRECT3DDEVICE9 pDevice = CManager::Get()->GetRenderer()->GetDevice();		//デバイスの取得
 
 	//Xファイルの読み込み
 	D3DXLoadMeshFromX(pFilename,
@@ -119,7 +119,7 @@ void CModel::Unload(void)
 //==============================================================
 HRESULT CModel::Init(void)
 {
-	CMaterial *pMaterial = CManager::GetMaterial();
+	CMaterial *pMaterial = CManager::Get()->GetMaterial();
 
 	//モデルの読み込み
 	m_nIdxModel = pMaterial->Regit(m_pFilename);

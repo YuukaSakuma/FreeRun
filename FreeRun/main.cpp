@@ -25,7 +25,6 @@ int g_nCountFPS = 0;	//FPSカウンター
 //==============================================================
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hInstancePrev, LPSTR lpCmdLine, int nCmdShow)
 {
-	CManager *pManager = NULL;
 
 	WNDCLASSEX wcex
 	{
@@ -71,16 +70,12 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hInstancePrev, LPSTR lpCmdLine
 		hInstance,							//インスタンスハンドル
 		NULL);								//ウインドウ作成データ
 
-	if (pManager == NULL)
-	{
-		//レンダラーの生成
-		pManager = new CManager;
-	}
+	CManager::Get();
 
-	if (pManager != NULL)
+	if (CManager::Get() != NULL)
 	{
 		//レンダラーの初期化処理
-		if (FAILED(pManager->Init(hInstance, hWnd, TRUE)))
+		if (FAILED(CManager::Get()->Init(hInstance, hWnd, TRUE)))
 		{//初期化処理が失敗した場合
 
 			return -1;
@@ -133,14 +128,14 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hInstancePrev, LPSTR lpCmdLine
 			{//60分の1秒経過
 				dwExecLastTime = dwCurrentTime;	//処理開始の時刻[現在時刻]を保存
 
-				if (pManager != NULL)
+				if (CManager::Get() != NULL)
 				{// 生成できた場合
 
 				 // 更新処理
-					pManager->Update();
+					CManager::Get()->Update();
 
 					// 描画処理
-					pManager->Draw();
+					CManager::Get()->Draw();
 				}
 
 				dwFrameCount++;	//フレームカウントを加算
@@ -149,15 +144,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hInstancePrev, LPSTR lpCmdLine
 		}
 	}
 
-	if (pManager != NULL)
-	{//使用していたら
-
-		//レンダラーの終了処理
-		pManager->Uninit();
-
-		delete pManager;
-		pManager = NULL;
-	}
+	CManager::Get()->Release();
 
 	//ウインドウクラスの登録を解除
 	UnregisterClass(CLASS_NAME, wcex.hInstance);

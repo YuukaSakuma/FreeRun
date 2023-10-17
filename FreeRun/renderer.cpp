@@ -150,7 +150,7 @@ void CRenderer::Update(void)
 //==============================================================
 void CRenderer::Draw(void)
 {
-	CDebugProc *pDebugProc = CManager::GetDebugProc();
+	CDebugProc *pDebugProc = CManager::Get()->GetDebugProc();
 
 
 	//画面クリア(バックバッファとZバッファのクリア)

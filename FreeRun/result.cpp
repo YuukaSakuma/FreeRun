@@ -42,7 +42,7 @@ HRESULT CResult::Init(void)
 {
 	// ロゴの生成
 	CObject2D *p = CObject2D::Create();
-	p->BindTexture(CManager::GetTexturet()->Regist("data\\TEXTURE\\result.png"));
+	p->BindTexture(CManager::Get()->GetTexturet()->Regist("data\\TEXTURE\\result.png"));
 	p->SetPosition(D3DXVECTOR3(600.0f, SCREEN_HEIGHT * 0.15f, 0.0f));
 	p->SetSize(400, 150);
 
@@ -77,15 +77,15 @@ void CResult::Uninit(void)
 //==============================================================
 void CResult::Update(void)
 {
-	CDebugProc *pDebugProc = CManager::GetDebugProc();
+	CDebugProc *pDebugProc = CManager::Get()->GetDebugProc();
 
-	CInputKeyboard *pInputKeyboard = CManager::GetInputKeybard();		//キーボードの情報取得
+	CInputKeyboard *pInputKeyboard = CManager::Get()->GetInputKeybard();		//キーボードの情報取得
 
 	if (pInputKeyboard->GetTrigger(DIK_RETURN) == true)
 	{//ENTERキー押したら
 
 	 //チュートリアル画面
-		CManager::GetFade()->Set(MODE_RANKING);
+		CManager::Get()->GetFade()->Set(MODE_RANKING);
 	}
 	
 	//CScene::Update();

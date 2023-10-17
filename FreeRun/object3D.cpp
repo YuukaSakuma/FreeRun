@@ -55,7 +55,7 @@ CObject3D *CObject3D::Create()
 HRESULT CObject3D::Init(void)
 {
 	LPDIRECT3DDEVICE9 pDevice;
-	CRenderer *pRenderer = CManager::GetRenderer();
+	CRenderer *pRenderer = CManager::Get()->GetRenderer();
 
 	//デバイスの取得
 	pDevice = pRenderer->GetDevice();
@@ -132,9 +132,9 @@ void CObject3D::Update(void)
 void CObject3D::Draw(void)
 {
 	LPDIRECT3DDEVICE9 pDevice;
-	CRenderer *pRenderer = CManager::GetRenderer();
+	CRenderer *pRenderer = CManager::Get()->GetRenderer();
 
-	CTexture * pTexture = CManager::GetTexturet();
+	CTexture * pTexture = CManager::Get()->GetTexturet();
 
 	//デバイスの取得
 	pDevice = pRenderer->GetDevice();

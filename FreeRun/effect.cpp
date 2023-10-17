@@ -66,7 +66,7 @@ CEffect *CEffect::Create(D3DXVECTOR3 pos, D3DXVECTOR3 move, D3DXCOLOR col, float
 //==============================================================
 HRESULT CEffect::Init(void)
 {
-	CTexture * pTexture = CManager::GetTexturet();
+	CTexture * pTexture = CManager::Get()->GetTexturet();
 
 	m_nldxTexture = pTexture->Regist("data\\TEXTURE\\effect000.jpg");
 
@@ -138,7 +138,7 @@ void CEffect::Draw(void)
 	LPDIRECT3DDEVICE9 pDevice;		//デバイスへのポインタ
 
 	//デバイスの取得
-	pDevice = CManager::GetRenderer()->GetDevice();
+	pDevice = CManager::Get()->GetRenderer()->GetDevice();
 
 	//ライティングをオフにする
 	pDevice->SetRenderState(D3DRS_LIGHTING, FALSE);

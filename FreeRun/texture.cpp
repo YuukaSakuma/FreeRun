@@ -58,7 +58,7 @@ CTexture::~CTexture()
 HRESULT CTexture::Load(void)
 {
 	LPDIRECT3DDEVICE9 pDevice;
-	CRenderer *pRenderer = CManager::GetRenderer();
+	CRenderer *pRenderer = CManager::Get()->GetRenderer();
 	//デバイスの取得
 	pDevice = pRenderer->GetDevice();
 
@@ -99,13 +99,13 @@ void CTexture::Unload(void)
 int CTexture::Regist(const char *pFilename)
 {
 	LPDIRECT3DDEVICE9 pDevice;
-	CRenderer *pRenderer = CManager::GetRenderer();
+	CRenderer *pRenderer = CManager::Get()->GetRenderer();
 	//デバイスの取得
 	pDevice = pRenderer->GetDevice();
 
 	int nNumOld = m_nNumAll;
 
-	CTexture * pTexture = CManager::GetTexturet();
+	CTexture * pTexture = CManager::Get()->GetTexturet();
 
 	for (int nCntTex = 0; nCntTex < m_nNumAll; nCntTex++)
 	{

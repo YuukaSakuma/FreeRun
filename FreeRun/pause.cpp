@@ -68,7 +68,7 @@ CPause *CPause::Create(void)
 //==============================================================
 HRESULT CPause::Init(void)
 {
-	CTexture *pTexture = CManager::GetTexturet();
+	CTexture *pTexture = CManager::Get()->GetTexturet();
 
 	//テクスチャの読み込み
 	m_nIdxTexture[0] = pTexture->Regist("data\\TEXTURE\\pause00.png");
@@ -133,9 +133,9 @@ void CPause::Uninit(void)
 //==============================================================
 void CPause::Update(void)
 {
-	CInputKeyboard *pInputKeyboard = CManager::GetInputKeybard();		//キーボードの情報取得
+	CInputKeyboard *pInputKeyboard = CManager::Get()->GetInputKeybard();		//キーボードの情報取得
 	//CGame *pGame = CGame::GetMode();		//ゲームの情報取得
-	CFade *pFade = CManager::GetFade();		//フェードの情報取得
+	CFade *pFade = CManager::Get()->GetFade();		//フェードの情報取得
 	//CSound *pSound = CManager::GetSound();
 
 	if (pInputKeyboard->GetTrigger(DIK_P) == true)
@@ -219,7 +219,7 @@ void CPause::Update(void)
 			//pGame->SetEnablePauseMenu(false);
 
 			//モード設定(ゲーム画面の最初に移行)
-			CManager::GetFade()->Set(CScene::MODE_GAME);			//フェードアウト
+			CManager::Get()->GetFade()->Set(CScene::MODE_GAME);			//フェードアウト
 			break;
 
 		case PAUSE_QUIT:			//タイトル
@@ -229,7 +229,7 @@ void CPause::Update(void)
 
 			//モード設定(タイトル画面に移行)
 			//CManager::GetMode() == CScene::MODE_GAME
-			CManager::GetFade()->Set(CScene::MODE_TITLE);
+			CManager::Get()->GetFade()->Set(CScene::MODE_TITLE);
 			//pGame->SetMode(CScene::MODE_TITLE);				//フェードアウト
 			break;
 		}

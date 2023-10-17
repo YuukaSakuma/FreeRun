@@ -1,11 +1,53 @@
-﻿  camera.cpp
+﻿  bg.cpp
+  billboard.cpp
+  block.cpp
+  blockX.cpp
+  camera.cpp
+  debugproc.cpp
+  edit.cpp
+  effect.cpp
+  explosion.cpp
+  fade.cpp
+  field.cpp
   game.cpp
+  input.cpp
+  life.cpp
+  light.cpp
+  main.cpp
+  manager.cpp
+  map.cpp
+  material.cpp
+  model.cpp
+  コンパイル中...
+  modelHierarchy.cpp
   motion.cpp
+  multibg.cpp
+  number.cpp
+  object.cpp
+  object2D.cpp
+  object3D.cpp
+  objectX.cpp
+  particle.cpp
+  pause.cpp
   playermodel.cpp
+  polygon.cpp
+  precompile.cpp
+  ranking.cpp
+  renderer.cpp
+  result.cpp
+  score.cpp
+  sound.cpp
+  texture.cpp
+  time.cpp
+  コンパイル中...
+  title.cpp
+  titleTex.cpp
+  tutrial.cpp
+  wall.cpp
   コード生成しています。
-  18 of 474 functions ( 3.8%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
+  470 of 474 functions (99.2%) were compiled, the rest were copied from previous compilation.
+    10 functions were new in current compilation
     0 functions had inline decision re-evaluated but remain unchanged
   コード生成が終了しました。
-  FreeRun.vcxproj -> C:\Users\student\Documents\Visual Studio 2015\Projects\FreeRun\FreeRun.exe
-  FreeRun.vcxproj -> C:\Users\student\Documents\Visual Studio 2015\Projects\FreeRun\FreeRun.pdb (Full PDB)
+  FreeRun.vcxproj -> C:\Users\student\Desktop\FreeRun\FreeRun\FreeRun.exe
+  FreeRun.vcxproj -> C:\Users\student\Desktop\FreeRun\FreeRun\FreeRun.pdb (Full PDB)

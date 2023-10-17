@@ -103,8 +103,8 @@ void CObjectX::Update(void)
 //==============================================================
 void CObjectX::Draw(void)
 {
-	LPDIRECT3DDEVICE9 pDevice = CManager::GetRenderer()->GetDevice();		//デバイスの取得
-	CMaterial *pMaterial = CManager::GetMaterial();
+	LPDIRECT3DDEVICE9 pDevice = CManager::Get()->GetRenderer()->GetDevice();		//デバイスの取得
+	CMaterial *pMaterial = CManager::Get()->GetMaterial();
 	D3DXMATRIX mtxRot, mtxTrans;	//計算用マトリックス
 	D3DMATERIAL9 matDef;			//現在のマテリアル保存用
 	D3DXMATERIAL *pMat;
@@ -210,7 +210,7 @@ void CObjectX::BindXFile(LPD3DXMESH pMesh, LPD3DXBUFFER pBuffMat, DWORD dwNumMat
 //==============================================================
 void CObjectX::SetObject(void)
 {
-	CMaterial *pMaterial = CManager::GetMaterial();
+	CMaterial *pMaterial = CManager::Get()->GetMaterial();
 
 	int nNumVtx;					//頂点数
 	DWORD dwSizeFVF;				//頂点フォーマットのサイズ

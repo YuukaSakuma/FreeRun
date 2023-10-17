@@ -60,7 +60,7 @@ CBg *CBg::Create(void)
 //==============================================================
 HRESULT CBg::Init(void)
 {
-	CTexture * pTexture = CManager::GetTexturet();
+	CTexture * pTexture = CManager::Get()->GetTexturet();
 
 	m_nldxTexture = pTexture->Regist("data\\TEXTURE\\bg100.png");
 
@@ -131,7 +131,7 @@ void CBg::Draw(void)
 	CTexture *pTexture = NULL;
 
 	LPDIRECT3DDEVICE9 pDevice = NULL;
-	CRenderer *pRenderer = CManager::GetRenderer();
+	CRenderer *pRenderer = CManager::Get()->GetRenderer();
 
 	//オブジェクト2Dの描画処理
 	CObject2D::Draw();

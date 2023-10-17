@@ -18,7 +18,6 @@
 //前方宣言
 class CPlayerModel;
 class CMaterial;
-
 class CTitle;			//タイトル画面
 class CTutorial;		//チュートリアル画面
 class CGame;			//ゲーム画面
@@ -63,13 +62,6 @@ public:
 private:
 
 	MODE m_mode;	//モード
-	
-	//static CTitle *m_pTitle;			//タイトル画面の情報
-	//static CTutorial *m_pTutorial;		//チュートリアル画面
-	//static CGame *m_pGame;				//ゲーム画面の情報
-	//static CResult *m_pResult;			//リザルト画面の情報
-	//static CRanking *m_pRanking;		//ランキング画面の情報
-
 };
 
 //==============================================================
@@ -86,17 +78,18 @@ public:
 	void Update(void);											//マネージャの更新処理
 	void Draw(void);											//マネージャの描画処理
 
-	static CRenderer * GetRenderer(void);			//レンダラーの取得
-	static CInputKeyboard *GetInputKeybard(void);	//キーボードの取得
-	static CPlayerModel * GetPlayerModel(void);		//プレイヤーの取得
-	static CCamera * GetCamera(void);				//カメラの取得
-	static CLight * GetLight(void);					//ライトの取得
-	static CTexture * GetTexturet(void);			//テクスチャの取得
-	static CMaterial *GetMaterial(void) { return m_pMaterial; }		//マテリアルの取得
-	static CDebugProc *GetDebugProc(void);			//デバッグプロックの取得
-	static CFade *GetFade(void);
+	static CManager *Get(void);
+	static HRESULT Release(void);
 
-	static CEdit *GetEdit(void) { return m_pEdit; }
+	 CRenderer * GetRenderer(void);			//レンダラーの取得
+	 CInputKeyboard *GetInputKeybard(void);	//キーボードの取得
+	 CPlayerModel * GetPlayerModel(void);		//プレイヤーの取得
+	 CCamera * GetCamera(void);				//カメラの取得
+	 CLight * GetLight(void);					//ライトの取得
+	 CTexture * GetTexturet(void);			//テクスチャの取得
+	 CMaterial *GetMaterial(void) { return m_pMaterial; }		//マテリアルの取得
+	 CDebugProc *GetDebugProc(void);			//デバッグプロックの取得
+	 CFade *GetFade(void);
 
 	static void SetMode(CScene::MODE mode);			//モードの設定
 	static CScene::MODE GetMode(void);				//モードの取得
@@ -107,17 +100,18 @@ public:
 	void ResetMap(void);	//再生成
 
 private:
-	static CRenderer *m_pRenderer;					//レンダラーのポインタ
-	static CInputKeyboard *m_pInputKeyboard;		//キーボードのポインタ
-	static CPlayerModel * m_pPlayerModel;			//プレイヤーのポインタ
-	static CSound * m_pSound;						//サウンドのポインタ
-	static CCamera * m_pCamera;						//カメラのポインタ
-	static CLight * m_pLight;						//カメラのポインタ
-	static CTexture * m_pTexture;					//テクスチャのポインタ
-	static CMaterial *m_pMaterial;		//マテリアルの情報
-	static CDebugProc *m_pDebugProc;				//デバッグプロックのポインタ
 
-	static CEdit *m_pEdit;
+	static CManager *m_pManager;
+
+	 CRenderer *m_pRenderer;					//レンダラーのポインタ
+	 CInputKeyboard *m_pInputKeyboard;		//キーボードのポインタ
+	 CPlayerModel * m_pPlayerModel;			//プレイヤーのポインタ
+	 CSound * m_pSound;						//サウンドのポインタ
+	 CCamera * m_pCamera;						//カメラのポインタ
+	 CLight * m_pLight;						//カメラのポインタ
+	 CTexture * m_pTexture;					//テクスチャのポインタ
+	 CMaterial *m_pMaterial;		//マテリアルの情報
+	 CDebugProc *m_pDebugProc;				//デバッグプロックのポインタ
 
 	static CScene *m_pScene;	//シーンのポインタ
 	static CFade *m_pFade;

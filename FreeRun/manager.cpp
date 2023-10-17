@@ -33,15 +33,6 @@
 #include"material.h"
 
 //静的メンバ変数
-CRenderer * CManager::m_pRenderer = NULL;
-CInputKeyboard * CManager::m_pInputKeyboard = NULL;
-CPlayerModel * CManager::m_pPlayerModel = NULL;
-CSound * CManager::m_pSound = NULL;	
-CCamera * CManager::m_pCamera = NULL;
-CLight * CManager::m_pLight = NULL;
-CTexture * CManager::m_pTexture = NULL;
-CMaterial *CManager::m_pMaterial = NULL;
-CDebugProc *CManager::m_pDebugProc = NULL;
 
 CScene *CManager::m_pScene = NULL;
 CFade *CManager::m_pFade = NULL;
@@ -51,7 +42,7 @@ CFade *CManager::m_pFade = NULL;
 //CGame *CScene::m_pGame = NULL;
 //CResult *CScene::m_pResult = NULL;
 //CRanking *CScene::m_pRanking = NULL;
-
+CManager *CManager::m_pManager = NULL;
 
 
 //==============================================================
@@ -163,7 +154,18 @@ void CScene::Draw(void)
 //==============================================================
 CManager::CManager()
 {
-
+	//m_pManager = NULL;
+	m_pCamera = NULL;
+	m_pDebugProc = NULL;
+	m_pFade = NULL;
+	m_pInputKeyboard = NULL;
+	m_pLight = NULL;
+	m_pMaterial = NULL;
+	m_pPlayerModel = NULL;
+	m_pRenderer = NULL;
+	m_pScene = NULL;
+	m_pSound = NULL;
+	m_pTexture = NULL;
 }
 
 //==============================================================
@@ -180,6 +182,20 @@ CManager::~CManager()
 HRESULT CManager::Init(HINSTANCE hInstance, HWND hWnd, BOOL hWindow)
 {
 	CNumber * pNum = NULL;
+
+	//m_pManager = NULL;
+	m_pRenderer = NULL;
+	m_pCamera = NULL;
+	m_pDebugProc = NULL;
+	m_pFade = NULL;
+	m_pInputKeyboard = NULL;
+	m_pLight = NULL;
+	m_pMaterial = NULL;
+	m_pPlayerModel = NULL;
+	
+	m_pScene = NULL;
+	m_pSound = NULL;
+	m_pTexture = NULL;
 
 	//レンダラーの生成・初期化処理
 	if (m_pRenderer == NULL)
@@ -216,7 +232,7 @@ HRESULT CManager::Init(HINSTANCE hInstance, HWND hWnd, BOOL hWindow)
 	}
 
 	if (m_pInputKeyboard != NULL)
-	{//使用しているとき
+	{//使用しているとき 
 		if (FAILED(m_pInputKeyboard->Init(hInstance, hWnd)))
 		{//初期化処理が失敗した場合
 			return -1;
@@ -388,6 +404,8 @@ void CManager::Uninit(void)
 		delete m_pInputKeyboard;
 		m_pInputKeyboard = NULL;
 	}
+
+	
 }
 
 //==============================================================
@@ -425,7 +443,7 @@ void CManager::Draw(void)
 //==============================================================
 void CManager::SetMode(CScene::MODE mode)
 {
-	m_pSound->Stop();
+	Get()->m_pSound->Stop();
 
 	if (m_pScene != NULL)
 	{
@@ -441,13 +459,13 @@ void CManager::SetMode(CScene::MODE mode)
 	m_pFade = NULL;
 
 	//サウンドの生成・初期化処理
-	if (m_pTexture == NULL)
+	if (Get()->m_pTexture == NULL)
 	{//使用していないとき
-		m_pTexture = new CTexture;
+		Get()->m_pTexture = new CTexture;
 
-		if (m_pTexture != NULL)
+		if (Get()->m_pTexture != NULL)
 		{
-			m_pTexture->Load();
+			Get()->m_pTexture->Load();
 		}
 	}
 
@@ -481,15 +499,8 @@ CScene::MODE CManager::GetMode(void)
 //==============================================================
 void CManager::CreateAll(void)
 {
-
 	////スコアの生成
 	//CScore::Create(D3DXVECTOR3(800.0f, 50.0f, 0.0f));
-
-	//ブロックの生成
-	CBlock::Create(CObject2D::TYPE_BLOCK, D3DXVECTOR3(1000.0f, 500.0f, 0.0f));
-	CBlock::Create(CObject2D::TYPE_BLOCK, D3DXVECTOR3(1050.0f, 500.0f, 0.0f));
-	CBlock::Create(CObject2D::TYPE_BLOCK, D3DXVECTOR3(700.0f, 650.0f, 0.0f));
-	CBlock::Create(CObject2D::TYPE_BLOCK, D3DXVECTOR3(750.0f, 650.0f, 0.0f));
 }
 
 //==============================================================
@@ -557,7 +568,45 @@ CDebugProc *CManager::GetDebugProc(void)
 	return m_pDebugProc;
 }
 
+//===================================================
+// デバッグ表示の取得
+//===================================================
 CFade *CManager::GetFade(void)
 {
 	return m_pFade;
+}
+
+//===================================================
+// デバッグ表示の取得
+//===================================================
+CManager *CManager::Get(void)
+{
+	if (m_pManager == NULL)
+	{
+		return m_pManager = new CManager;
+	}
+	else
+	{
+		return m_pManager;
+	}
+
+}
+
+//===================================================
+// デバッグ表示の取得
+//===================================================
+HRESULT CManager::Release(void)
+{
+	if (m_pManager != NULL)
+	{//使用していたら
+
+	 //レンダラーの終了処理
+		m_pManager->Uninit();
+
+		delete m_pManager;
+		m_pManager = NULL;
+	}
+
+	return S_OK;
+
 }

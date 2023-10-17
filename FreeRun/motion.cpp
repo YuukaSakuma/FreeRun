@@ -126,7 +126,7 @@ void CMotion::Init(const char *c_MotionFile,int nNumModel)
 //==============================================================
 void CMotion::Update(void)
 {
-	CDebugProc *pDebugProc = CManager::GetDebugProc();
+	CDebugProc *pDebugProc = CManager::Get()->GetDebugProc();
 
 	D3DXVECTOR3 posDiff, rotDiff;		//·•ª
 	D3DXVECTOR3 posDest, rotDest;		//–Ú•W

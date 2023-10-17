@@ -72,7 +72,7 @@ CTitleTex *CTitleTex::Create(void)
 //==============================================================
 HRESULT CTitleTex::Init(void)
 {
-	CTexture *pTexture = CManager::GetTexturet();
+	CTexture *pTexture = CManager::Get()->GetTexturet();
 
 	//テクスチャの読み込み
 	m_nIdxTexture[0] = pTexture->Regist("data\\TEXTURE\\title_logo00.png");
@@ -145,8 +145,8 @@ void CTitleTex::Uninit(void)
 //==============================================================
 void CTitleTex::Update(void)
 {
-	CInputKeyboard *pInputKeyboard = CManager::GetInputKeybard();		//キーボードの情報取得
-	CFade *pFade = CManager::GetFade();		//フェードの情報取得
+	CInputKeyboard *pInputKeyboard = CManager::Get()->GetInputKeybard();		//キーボードの情報取得
+	CFade *pFade = CManager::Get()->GetFade();		//フェードの情報取得
 
 	switch (m_state)
 	{

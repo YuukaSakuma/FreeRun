@@ -37,12 +37,12 @@ CTitle::~CTitle()
 //==============================================================
 HRESULT CTitle::Init(void)
 {
-	CCamera *pCamera = CManager::GetCamera();		//カメラの情報取得
+	CCamera *pCamera = CManager::Get()->GetCamera();		//カメラの情報取得
 
 	//オブジェクト2Dの生成
 	CObject2D *pObject2D = CObject2D::Create();
 
-	pObject2D->BindTexture(CManager::GetTexturet()->Regist("data\\TEXTURE\\bg.jpg"));
+	pObject2D->BindTexture(CManager::Get()->GetTexturet()->Regist("data\\TEXTURE\\bg.jpg"));
 	pObject2D->SetPosition(D3DXVECTOR3(SCREEN_WIDTH * 0.5f, SCREEN_HEIGHT * 0.5f, 0.0f));
 	pObject2D->SetVtx(0.0f, 0.0f);
 
@@ -72,15 +72,15 @@ void CTitle::Uninit(void)
 //==============================================================
 void CTitle::Update(void)
 {
-	CDebugProc *pDebugProc = CManager::GetDebugProc();
+	CDebugProc *pDebugProc = CManager::Get()->GetDebugProc();
 
-	CInputKeyboard *pInputKeyboard = CManager::GetInputKeybard();		//キーボードの情報取得
+	CInputKeyboard *pInputKeyboard = CManager::Get()->GetInputKeybard();		//キーボードの情報取得
 
 	if (pInputKeyboard->GetTrigger(DIK_RETURN) == true )
 	{//ENTERキー押したら
 
 	 //チュートリアル画面
-		CManager::GetFade()->Set(CScene::MODE_TUTORIAL);
+		CManager::Get()->GetFade()->Set(CScene::MODE_TUTORIAL);
 	}
 
 	CScene::Update();
@@ -89,13 +89,13 @@ void CTitle::Update(void)
 
 	CScene::Update();
 
-	if (CManager::GetFade()->GetState() == CFade::STATE_NONE)
+	if (CManager::Get()->GetFade()->GetState() == CFade::STATE_NONE)
 	{
 		m_nTimer++;
 
 		if (m_nTimer >= AUTOMOVE_RANKING)
 		{// タイトル自動遷移規定値
-			CManager::GetFade()->Set(CScene::MODE_RANKING);
+			CManager::Get()->GetFade()->Set(CScene::MODE_RANKING);
 		}
 	}
 

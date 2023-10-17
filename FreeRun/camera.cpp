@@ -87,7 +87,7 @@ void CCamera::Uninit(void)
 //==============================================================
 void CCamera::Update(void)
 {
-	CInputKeyboard *pInputKeyboard = CManager::GetInputKeybard();	//キーボードの取得
+	CInputKeyboard *pInputKeyboard = CManager::Get()->GetInputKeybard();	//キーボードの取得
 
 	
 	if (CManager::GetMode() == CScene::MODE_GAME)
@@ -256,7 +256,7 @@ void CCamera::Update(void)
 void CCamera::Set(void)
 {
 	LPDIRECT3DDEVICE9 pDevice;
-	CRenderer *pRenderer = CManager::GetRenderer();
+	CRenderer *pRenderer = CManager::Get()->GetRenderer();
 
 	//デバイスの取得
 	pDevice = pRenderer->GetDevice();

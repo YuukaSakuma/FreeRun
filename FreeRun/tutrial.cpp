@@ -39,7 +39,7 @@ HRESULT CTutorial::Init(void)
 	//オブジェクト2Dの生成
 	CObject2D *pObject2D = CObject2D::Create();
 
-	pObject2D->BindTexture(CManager::GetTexturet()->Regist("data\\TEXTURE\\tutrial000.png"));
+	pObject2D->BindTexture(CManager::Get()->GetTexturet()->Regist("data\\TEXTURE\\tutrial000.png"));
 	pObject2D->SetPosition(D3DXVECTOR3(SCREEN_WIDTH * 0.5f, SCREEN_HEIGHT * 0.5f, 0.0f));
 	pObject2D->SetVtx(0.0f, 0.0f);
 
@@ -62,9 +62,9 @@ void CTutorial::Uninit(void)
 //==============================================================
 void CTutorial::Update(void)
 {
-	CDebugProc *pDebugProc = CManager::GetDebugProc();
+	CDebugProc *pDebugProc = CManager::Get()->GetDebugProc();
 
-	CInputKeyboard *pInputKeyboard = CManager::GetInputKeybard();		//キーボードの情報取得
+	CInputKeyboard *pInputKeyboard = CManager::Get()->GetInputKeybard();		//キーボードの情報取得
 
 	if (pInputKeyboard->GetTrigger(DIK_RETURN) == true )
 	{//ENTERキー押したら

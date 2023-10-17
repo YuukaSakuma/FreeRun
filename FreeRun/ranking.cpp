@@ -60,7 +60,7 @@ HRESULT CRanking::Init(void)
 
 	// ロゴの生成
 	CObject2D *p = CObject2D::Create();
-	p->BindTexture(CManager::GetTexturet()->Regist("data\\TEXTURE\\ranking.png"));
+	p->BindTexture(CManager::Get()->GetTexturet()->Regist("data\\TEXTURE\\ranking.png"));
 	p->SetPosition(D3DXVECTOR3(SCREEN_WIDTH * 0.5f, SCREEN_HEIGHT * 0.15f, 0.0f));
 	p->SetSize(400, 150);
 
@@ -70,7 +70,7 @@ HRESULT CRanking::Init(void)
 		if (m_apScore[nCntRank] == NULL)
 		{
 			p = CObject2D::Create();
-			p->BindTexture(CManager::GetTexturet()->Regist("data\\TEXTURE\\rank.png"));
+			p->BindTexture(CManager::Get()->GetTexturet()->Regist("data\\TEXTURE\\rank.png"));
 			p->SetPosition(D3DXVECTOR3(350.0f, 250.0f + nCntRank * 100.0f, 0.0f));
 			p->SetSize(80, 50);
 			p->SetVtx(nCntRank, 0.2f);
@@ -114,28 +114,28 @@ void CRanking::Uninit(void)
 //==============================================================
 void CRanking::Update(void)
 {
-	CDebugProc *pDebugProc = CManager::GetDebugProc();
+	CDebugProc *pDebugProc = CManager::Get()->GetDebugProc();
 
-	CInputKeyboard *pInputKeyboard = CManager::GetInputKeybard();		//キーボードの情報取得
+	CInputKeyboard *pInputKeyboard = CManager::Get()->GetInputKeybard();		//キーボードの情報取得
 
 	if (pInputKeyboard->GetTrigger(DIK_RETURN) == true)
 	{//ENTERキー押したら
 
 	 //チュートリアル画面
-		CManager::GetFade()->Set(MODE_TITLE);
+		CManager::Get()->GetFade()->Set(MODE_TITLE);
 	}
 
 	pDebugProc->Print("\nランキング\n");
 
 	CScene::Update();
 
-	if (CManager::GetFade()->GetState() == CFade::STATE_NONE)
+	if (CManager::Get()->GetFade()->GetState() == CFade::STATE_NONE)
 	{
 		m_nTimer++;
 
 		if (m_nTimer >= AUTOMOVE_TITLE)
 		{// タイトル自動遷移規定値
-			CManager::GetFade()->Set(MODE_TITLE);
+			CManager::Get()->GetFade()->Set(MODE_TITLE);
 		}
 	}
 

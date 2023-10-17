@@ -73,7 +73,7 @@ CExplosion *CExplosion::Create(D3DXVECTOR3 pos, TYPE type)
 //==============================================================
 HRESULT CExplosion::Init(void)
 {
-	CTexture * pTexture = CManager::GetTexturet();
+	CTexture * pTexture = CManager::Get()->GetTexturet();
 
 	m_nldxTexture = pTexture->Regist("data\\TEXTURE\\explosion000.png");
 

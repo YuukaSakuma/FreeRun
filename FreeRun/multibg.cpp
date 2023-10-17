@@ -68,7 +68,7 @@ CMultiBg *CMultiBg::Create(void)
 //==============================================================
 HRESULT CMultiBg::Init(void)
 {
-	CTexture * pTexture = CManager::GetTexturet();
+	CTexture * pTexture = CManager::Get()->GetTexturet();
 
 	for (int nCntTex = 0; nCntTex < TYPE_BG_MAX; nCntTex++)
 	{
