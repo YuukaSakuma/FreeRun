@@ -87,6 +87,7 @@ private:
 	int m_nCntStart;
 
 	bool m_bAutoMove;
+	bool m_bSecondJump;
 
 };
 #endif // !_PLAYER_H_

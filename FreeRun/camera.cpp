@@ -12,12 +12,12 @@
 #include"game.h"
 
 //マクロ定義
-#define LENGTH	(1000.0f)			//長さ
+#define LENGTH	(500.0f)			//長さ
 #define POSVX	(0.0f)				//視点X
 #define POSVY	(100.0f)			//視点Y
 #define POSVZ	(-100.0f)			//視点Z
 #define POSRX	(0.0f)				//注視点X
-#define POSRY	(100.0f)			//注視点X
+#define POSRY	(0.0f)			//注視点X
 #define POSRZ	(0.0f)				//注視点X
 #define VECUX	(0.0f)				//上方向ベクトルX
 #define VECUY	(1.0f)				//上方向ベクトルY
@@ -62,9 +62,9 @@ HRESULT CCamera::Init(void)
 	m_vecU = D3DXVECTOR3(VECUX, VECUY, VECUZ);		//上方向ベクトルの初期化
 	m_rot = D3DXVECTOR3(1.5f, D3DX_PI * -0.5f, atan2f(m_posR.x - m_posV.x, m_posR.z - m_posV.z));			//向きの初期化
 
-	m_posV.x = m_posR.x + (sinf(m_rot.x) * cosf(m_rot.y))* LENGTH;
+	/*m_posV.x = m_posR.x + (sinf(m_rot.x) * cosf(m_rot.y))* LENGTH;
 	m_posV.y = m_posR.y + cosf(m_rot.x) * LENGTH;
-	m_posV.z = m_posR.z + (sinf(m_rot.x) * sinf(m_rot.y))* LENGTH;
+	m_posV.z = m_posR.z + (sinf(m_rot.x) * sinf(m_rot.y))* LENGTH;*/
 
 	m_posR.x = m_posV.x - (sinf(m_rot.x) * cosf(m_rot.y))* LENGTH;
 	m_posR.y = m_posV.y - cosf(m_rot.x) * LENGTH;
@@ -88,8 +88,8 @@ void CCamera::Uninit(void)
 void CCamera::Update(void)
 {
 	CInputKeyboard *pInputKeyboard = CManager::Get()->GetInputKeybard();	//キーボードの取得
+	CDebugProc *pDebugProc = CManager::Get()->GetDebugProc();
 
-	
 	if (CManager::GetMode() == CScene::MODE_GAME)
 	{
 		//追従
@@ -119,7 +119,7 @@ void CCamera::Update(void)
 			m_posV.z += sinf(m_rot.y + -D3DX_PI * CURVE3) * MOVE;
 			m_posR.x += cosf(m_rot.y + -D3DX_PI * CURVE3) * MOVE;
 			m_posR.z += sinf(m_rot.y + -D3DX_PI * CURVE3) * MOVE;
-		}													
+		}
 	}
 	else if (pInputKeyboard->GetPress(DIK_L) == true)
 	{//Dキーが押された
@@ -210,7 +210,7 @@ void CCamera::Update(void)
 
 	if (m_rot.x > D3DX_PI)
 	{
-		m_rot.x= -D3DX_PI;
+		m_rot.x = -D3DX_PI;
 	}
 	else if (m_rot.x < -D3DX_PI)
 	{
@@ -228,26 +228,30 @@ void CCamera::Update(void)
 	}
 
 	//視点
-	if (pInputKeyboard->GetPress(DIK_Z) == true 
-		|| pInputKeyboard->GetPress(DIK_C) == true 
-		|| pInputKeyboard->GetPress(DIK_Y) == true 
+	if (pInputKeyboard->GetPress(DIK_Z) == true
+		|| pInputKeyboard->GetPress(DIK_C) == true
+		|| pInputKeyboard->GetPress(DIK_Y) == true
 		|| pInputKeyboard->GetPress(DIK_N) == true)
 	{
-		m_posV.x = m_posR.x + (sinf(m_rot.x ) * cosf(m_rot.y))* LENGTH;
+		m_posV.x = m_posR.x + (sinf(m_rot.x) * cosf(m_rot.y))* LENGTH;
 		m_posV.y = m_posR.y + cosf(m_rot.x) * LENGTH;
 		m_posV.z = m_posR.z + (sinf(m_rot.x) * sinf(m_rot.y))* LENGTH;
 	}
 
 	//注視点
-	if (pInputKeyboard->GetPress(DIK_Q) == true 
-		|| pInputKeyboard->GetPress(DIK_E) == true 
-		|| pInputKeyboard->GetPress(DIK_T) == true 
+	if (pInputKeyboard->GetPress(DIK_Q) == true
+		|| pInputKeyboard->GetPress(DIK_E) == true
+		|| pInputKeyboard->GetPress(DIK_T) == true
 		|| pInputKeyboard->GetPress(DIK_B) == true)
 	{
 		m_posR.x = m_posV.x - (sinf(m_rot.x) * cosf(m_rot.y))* LENGTH;
 		m_posR.y = m_posV.y - cosf(m_rot.x) * LENGTH;
 		m_posR.z = m_posV.z - (sinf(m_rot.x) * sinf(m_rot.y))* LENGTH;
 	}
+
+	pDebugProc->Print("カメラの視点位置 : [%f %f %f] \n", m_posR.x, m_posR.y, m_posR.z);
+
+	pDebugProc->Print("カメラの注視点位置 : [%f %f %f] \n", m_posV.x, m_posV.y, m_posV.z);
 }
 
 //==============================================================

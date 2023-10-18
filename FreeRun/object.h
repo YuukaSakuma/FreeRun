@@ -42,8 +42,11 @@ public:
 		STATE_NONE = 0,		//通常状態
 		STATE_ATTACK,		//攻撃状態
 		STATE_DAMAGE,		//ダメージ状態
-		STATE_APPEAR,
-		STATE_DEATH,
+		STATE_APPEAR,		//復活状態
+		STATE_F_JUMP,		//1回目のジャンプ状態
+		STATE_S_JUMP,		//2回目のジャンプ状態
+		STATE_DEATH,		//死亡状態
+
 	} STATE;
 
 	CObject();				//コンストラクタ

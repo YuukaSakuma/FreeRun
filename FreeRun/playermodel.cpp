@@ -81,6 +81,7 @@ CPlayerModel::CPlayerModel()
 	m_nCntStart = 100;
 
 	m_bAutoMove = false;
+	m_bSecondJump = false;
 }
 
 //==============================================================
@@ -119,6 +120,7 @@ CPlayerModel::CPlayerModel(D3DXVECTOR3 pos, D3DXVECTOR3 rot)
 	m_nCntStart = 100;
 
 	m_bAutoMove = false;
+	m_bSecondJump = false;
 }
 
 //==============================================================
@@ -297,7 +299,7 @@ void CPlayerModel::Update(void)
 	//画面制限
 	CPlayerModel::Screen();
 
-	SetState();
+ 	SetState();
 
 	//モーションの更新処理
 	m_pMotion->Update();
@@ -373,13 +375,13 @@ void CPlayerModel::Control(void)
 
 	if (pInputKeyboard->GetTrigger(DIK_SPACE) == true && m_bJump == false)
 	{
-		//m_pMotion->Set(m_pMotion->MOTION_JUMP);
 
 		//ジャンプする
 		m_move.y = 24.0f;
 
 		//ジャンプした状態にする
 		m_bJump = true;
+		m_state = STATE_F_JUMP;
 		m_bLand = false;
 	}
 
@@ -417,6 +419,7 @@ void CPlayerModel::Screen(void)
 		m_move.y = 0.0f;
 
 		m_bJump = false;
+		m_bSecondJump = false;
 	}
 
 }
@@ -540,6 +543,8 @@ void CPlayerModel::Hit(void)
 //==============================================================
 void CPlayerModel::SetState(void)
 {
+	CInputKeyboard *pInputKeyboard = CManager::Get()->GetInputKeybard();
+
 	switch (m_state)
 	{
 	case STATE_NONE:		//通常状態
@@ -564,6 +569,52 @@ void CPlayerModel::SetState(void)
 				m_apModel[nCntEnemy]->SetState(m_state);		//通常状態にする
 			}
 		}
+		break;
+
+	case STATE_F_JUMP :		//1回目のジャンプ状態
+
+
+
+		//	//ジャンプする
+		//	m_move.y = 24.0f;
+
+			//ジャンプした状態にする
+			m_state = STATE_S_JUMP;
+
+		//	m_bLand = false;
+
+			//状態設定
+			for (int nCntEnemy = 0; nCntEnemy < 15; nCntEnemy++)
+			{
+				m_apModel[nCntEnemy]->SetState(m_state);		//通常状態にする
+			}
+		break;
+
+	case STATE_S_JUMP:		//2回目のジャンプ状態
+
+		if (pInputKeyboard->GetTrigger(DIK_SPACE) == true && m_bSecondJump  == false)
+		{
+
+			//ジャンプする
+			m_move.y = 24.0f;
+
+			//ジャンプした状態にする
+			m_bSecondJump  = true;
+			m_state = STATE_NONE;
+			m_bLand = false;
+		}
+
+
+		/*	m_state = STATE_NONE;
+
+			m_bJump = true;*/
+
+			//状態設定
+			for (int nCntEnemy = 0; nCntEnemy < 15; nCntEnemy++)
+			{
+				m_apModel[nCntEnemy]->SetState(m_state);		//通常状態にする
+			}
+
 		break;
 	}
 }

@@ -87,13 +87,10 @@ void CDebugProc::Update(void)
 
 	//操作方法
 	Print("FPS : %d\n", GetFPS());
-
 	Print("[F2]：リセット\n");
 	Print("[A,D]：移動\n");
-	Print("[移動 + L] : 壁登り\n");
 	Print("[SPACE]：ジャンプ\n");
-	Print("[↑↓←→]：弾発射\n");
-
+	Print("[F3]：移動切り替え\n");
 }
 
 //==========================================================
