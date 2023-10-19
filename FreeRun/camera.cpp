@@ -12,11 +12,11 @@
 #include"game.h"
 
 //マクロ定義
-#define LENGTH	(500.0f)			//長さ
+#define LENGTH	(3000.0f)			//長さ
 #define POSVX	(0.0f)				//視点X
-#define POSVY	(100.0f)			//視点Y
-#define POSVZ	(-100.0f)			//視点Z
-#define POSRX	(0.0f)				//注視点X
+#define POSVY	(0.0f)				//視点Y
+#define POSVZ	(0.0f)			//視点Z
+#define POSRX	(0.0f)			//注視点X
 #define POSRY	(0.0f)			//注視点X
 #define POSRZ	(0.0f)				//注視点X
 #define VECUX	(0.0f)				//上方向ベクトルX
@@ -62,9 +62,9 @@ HRESULT CCamera::Init(void)
 	m_vecU = D3DXVECTOR3(VECUX, VECUY, VECUZ);		//上方向ベクトルの初期化
 	m_rot = D3DXVECTOR3(1.5f, D3DX_PI * -0.5f, atan2f(m_posR.x - m_posV.x, m_posR.z - m_posV.z));			//向きの初期化
 
-	/*m_posV.x = m_posR.x + (sinf(m_rot.x) * cosf(m_rot.y))* LENGTH;
+	m_posV.x = m_posR.x + (sinf(m_rot.x) * cosf(m_rot.y))* LENGTH;
 	m_posV.y = m_posR.y + cosf(m_rot.x) * LENGTH;
-	m_posV.z = m_posR.z + (sinf(m_rot.x) * sinf(m_rot.y))* LENGTH;*/
+	m_posV.z = m_posR.z + (sinf(m_rot.x) * sinf(m_rot.y))* LENGTH;
 
 	m_posR.x = m_posV.x - (sinf(m_rot.x) * cosf(m_rot.y))* LENGTH;
 	m_posR.y = m_posV.y - cosf(m_rot.x) * LENGTH;
@@ -269,17 +269,17 @@ void CCamera::Set(void)
 	D3DXMatrixIdentity(&m_mtxProjection);
 
 	//プロジェクションマトリックスを作成
-	//D3DXMatrixPerspectiveFovLH(&m_mtxProjection,
-	//	D3DXToRadian(45.0f),
-	//	(float)SCREEN_WIDTH / (float)SCREEN_HEIGHT,
-	//	10.0f,
-	//	1000.0f);
-
-	D3DXMatrixOrthoLH(&m_mtxProjection,
-		SCREEN_WIDTH ,
-		SCREEN_HEIGHT,
-		-500.0f,
+	D3DXMatrixPerspectiveFovLH(&m_mtxProjection,
+		D3DXToRadian(45.0f),
+		(float)SCREEN_WIDTH / (float)SCREEN_HEIGHT,
+		500.0f,
 		10000.0f);
+
+	//D3DXMatrixOrthoLH(&m_mtxProjection,
+	//	SCREEN_WIDTH ,
+	//	SCREEN_HEIGHT,
+	//	100.0f,
+	//	10000.0f);
 
 	//プロジェクトマトリックスの設定
 	pDevice->SetTransform(D3DTS_PROJECTION, &m_mtxProjection);
@@ -298,6 +298,9 @@ void CCamera::Set(void)
 
 }
 
+//==============================================================
+//カメラの描画処理
+//==============================================================
 void CCamera::Move(void)
 {
 	CPlayerModel *pPlayer = CGame::GetPlayerModel();			//プレイヤーの情報取得
@@ -306,8 +309,8 @@ void CCamera::Move(void)
 	D3DXVECTOR3 RDiff;
 	//目的の注視点を設定
 
-	m_posRDest.x = (pPlayer->GetPosition().x + 400.0f) + sinf(pPlayer->GetRotation().y + D3DX_PI) * 0.0f;
-	m_posRDest.y = pPlayer->GetPosition().y + sinf(pPlayer->GetRotation().y + D3DX_PI) * 0.0f;
+	m_posRDest.x = (pPlayer->GetPosition().x + 1500.0f) + sinf(pPlayer->GetRotation().y + D3DX_PI) * 0.0f;
+	m_posRDest.y = (pPlayer->GetPosition().y + 500.0f) + sinf(pPlayer->GetRotation().y + D3DX_PI) * 0.0f;
 	m_posRDest.z = pPlayer->GetPosition().z + cosf(pPlayer->GetRotation().y + D3DX_PI) * 0.0f;
 
 	//目的の視点を設定

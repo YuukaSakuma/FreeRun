@@ -357,8 +357,8 @@ void CPlayerModel::Control(void)
 
 	if (m_pos.y >= 0.0f)
 	{
-		pCmamera->SetPositionVY(m_pos.y + 169.0f + sinf(m_rot.x) * 300.0f);
-		pCmamera->SetPositionRY(m_pos.y + 148.0f + sinf(m_rot.x) * 300.0f);
+		pCmamera->SetPositionVY(m_pos.y + 500.0f + sinf(m_rot.x) * 3000.0f);
+		pCmamera->SetPositionRY(m_pos.y + 500.0f + sinf(m_rot.x) * 3000.0f);
 	}
 
 	m_fRotMove = m_rot.y;
