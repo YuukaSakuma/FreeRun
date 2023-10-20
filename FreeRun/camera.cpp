@@ -12,7 +12,7 @@
 #include"game.h"
 
 //マクロ定義
-#define LENGTH	(3000.0f)			//長さ
+#define LENGTH	(2000.0f)			//長さ
 #define POSVX	(0.0f)				//視点X
 #define POSVY	(0.0f)				//視点Y
 #define POSVZ	(0.0f)			//視点Z
@@ -309,7 +309,7 @@ void CCamera::Move(void)
 	D3DXVECTOR3 RDiff;
 	//目的の注視点を設定
 
-	m_posRDest.x = (pPlayer->GetPosition().x + 1500.0f) + sinf(pPlayer->GetRotation().y + D3DX_PI) * 0.0f;
+	m_posRDest.x = (pPlayer->GetPosition().x + 1000.0f) + sinf(pPlayer->GetRotation().y + D3DX_PI) * 0.0f;
 	m_posRDest.y = (pPlayer->GetPosition().y + 500.0f) + sinf(pPlayer->GetRotation().y + D3DX_PI) * 0.0f;
 	m_posRDest.z = pPlayer->GetPosition().z + cosf(pPlayer->GetRotation().y + D3DX_PI) * 0.0f;
 

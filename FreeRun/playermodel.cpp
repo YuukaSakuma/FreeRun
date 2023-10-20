@@ -279,7 +279,7 @@ void CPlayerModel::Update(void)
 	CPlayerModel::Control();
 
 	//重力
-	m_move.y -= 0.5f;
+	m_move.y -= 0.7f;
 
 	//位置を更新
 	m_pos += m_move;
@@ -377,7 +377,7 @@ void CPlayerModel::Control(void)
 	{
 
 		//ジャンプする
-		m_move.y = 24.0f;
+		m_move.y = 35.0f;
 
 		//ジャンプした状態にする
 		m_bJump = true;
@@ -596,7 +596,7 @@ void CPlayerModel::SetState(void)
 		{
 
 			//ジャンプする
-			m_move.y = 24.0f;
+			m_move.y = 35.0f;
 
 			//ジャンプした状態にする
 			m_bSecondJump  = true;

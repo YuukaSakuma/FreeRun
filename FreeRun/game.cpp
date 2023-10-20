@@ -120,11 +120,77 @@ HRESULT CGame::Init(void)
 	CField::Create(CObject3D::TYPE_NONE, D3DXVECTOR3(34300.0f, 0.0f, 0.0f));
 	CField::Create(CObject3D::TYPE_NONE, D3DXVECTOR3(35000.0f, 0.0f, 0.0f));
 
+	CField::Create(CObject3D::TYPE_NONE, D3DXVECTOR3(35700.0f, 0.0f, 0.0f));
+	CField::Create(CObject3D::TYPE_NONE, D3DXVECTOR3(36400.0f, 0.0f, 0.0f));
+	CField::Create(CObject3D::TYPE_NONE, D3DXVECTOR3(37100.0f, 0.0f, 0.0f));
+	CField::Create(CObject3D::TYPE_NONE, D3DXVECTOR3(37800.0f, 0.0f, 0.0f));
+	CField::Create(CObject3D::TYPE_NONE, D3DXVECTOR3(38500.0f, 0.0f, 0.0f));
+	CField::Create(CObject3D::TYPE_NONE, D3DXVECTOR3(39200.0f, 0.0f, 0.0f));
+	CField::Create(CObject3D::TYPE_NONE, D3DXVECTOR3(39900.0f, 0.0f, 0.0f));
+	CField::Create(CObject3D::TYPE_NONE, D3DXVECTOR3(40600.0f, 0.0f, 0.0f));
+	CField::Create(CObject3D::TYPE_NONE, D3DXVECTOR3(41300.0f, 0.0f, 0.0f));
+	CField::Create(CObject3D::TYPE_NONE, D3DXVECTOR3(42000.0f, 0.0f, 0.0f));
+
+	CField::Create(CObject3D::TYPE_NONE, D3DXVECTOR3(42700.0f, 0.0f, 0.0f));
+	CField::Create(CObject3D::TYPE_NONE, D3DXVECTOR3(43400.0f, 0.0f, 0.0f));
+	CField::Create(CObject3D::TYPE_NONE, D3DXVECTOR3(44100.0f, 0.0f, 0.0f));
+	CField::Create(CObject3D::TYPE_NONE, D3DXVECTOR3(44800.0f, 0.0f, 0.0f));
+	CField::Create(CObject3D::TYPE_NONE, D3DXVECTOR3(45500.0f, 0.0f, 0.0f));
+	CField::Create(CObject3D::TYPE_NONE, D3DXVECTOR3(46200.0f, 0.0f, 0.0f));
+	CField::Create(CObject3D::TYPE_NONE, D3DXVECTOR3(46900.0f, 0.0f, 0.0f));
+	CField::Create(CObject3D::TYPE_NONE, D3DXVECTOR3(47600.0f, 0.0f, 0.0f));
+	CField::Create(CObject3D::TYPE_NONE, D3DXVECTOR3(48300.0f, 0.0f, 0.0f));
+	CField::Create(CObject3D::TYPE_NONE, D3DXVECTOR3(49000.0f, 0.0f, 0.0f));
+
+	CField::Create(CObject3D::TYPE_NONE, D3DXVECTOR3(49700.0f, 0.0f, 0.0f));
+	CField::Create(CObject3D::TYPE_NONE, D3DXVECTOR3(50400.0f, 0.0f, 0.0f));
+	CField::Create(CObject3D::TYPE_NONE, D3DXVECTOR3(51100.0f, 0.0f, 0.0f));
+	CField::Create(CObject3D::TYPE_NONE, D3DXVECTOR3(51800.0f, 0.0f, 0.0f));
+	CField::Create(CObject3D::TYPE_NONE, D3DXVECTOR3(52500.0f, 0.0f, 0.0f));
+	CField::Create(CObject3D::TYPE_NONE, D3DXVECTOR3(53200.0f, 0.0f, 0.0f));
+	CField::Create(CObject3D::TYPE_NONE, D3DXVECTOR3(53900.0f, 0.0f, 0.0f));
+	CField::Create(CObject3D::TYPE_NONE, D3DXVECTOR3(54600.0f, 0.0f, 0.0f));
+	CField::Create(CObject3D::TYPE_NONE, D3DXVECTOR3(55300.0f, 0.0f, 0.0f));
+	CField::Create(CObject3D::TYPE_NONE, D3DXVECTOR3(56000.0f, 0.0f, 0.0f));
+
+	CField::Create(CObject3D::TYPE_NONE, D3DXVECTOR3(56700.0f, 0.0f, 0.0f));
+	CField::Create(CObject3D::TYPE_NONE, D3DXVECTOR3(57400.0f, 0.0f, 0.0f));
+	CField::Create(CObject3D::TYPE_NONE, D3DXVECTOR3(58100.0f, 0.0f, 0.0f));
+	CField::Create(CObject3D::TYPE_NONE, D3DXVECTOR3(58800.0f, 0.0f, 0.0f));
+	CField::Create(CObject3D::TYPE_NONE, D3DXVECTOR3(59500.0f, 0.0f, 0.0f));
+	CField::Create(CObject3D::TYPE_NONE, D3DXVECTOR3(60200.0f, 0.0f, 0.0f));
+	CField::Create(CObject3D::TYPE_NONE, D3DXVECTOR3(60900.0f, 0.0f, 0.0f));
+	CField::Create(CObject3D::TYPE_NONE, D3DXVECTOR3(61600.0f, 0.0f, 0.0f));
+	CField::Create(CObject3D::TYPE_NONE, D3DXVECTOR3(62300.0f, 0.0f, 0.0f));
+	CField::Create(CObject3D::TYPE_NONE, D3DXVECTOR3(63000.0f, 0.0f, 0.0f));
+
+	CField::Create(CObject3D::TYPE_NONE, D3DXVECTOR3(63700.0f, 0.0f, 0.0f));
+	CField::Create(CObject3D::TYPE_NONE, D3DXVECTOR3(64400.0f, 0.0f, 0.0f));
+	CField::Create(CObject3D::TYPE_NONE, D3DXVECTOR3(65100.0f, 0.0f, 0.0f));
+	CField::Create(CObject3D::TYPE_NONE, D3DXVECTOR3(65800.0f, 0.0f, 0.0f));
+	CField::Create(CObject3D::TYPE_NONE, D3DXVECTOR3(66500.0f, 0.0f, 0.0f));
+	CField::Create(CObject3D::TYPE_NONE, D3DXVECTOR3(67200.0f, 0.0f, 0.0f));
+	CField::Create(CObject3D::TYPE_NONE, D3DXVECTOR3(67900.0f, 0.0f, 0.0f));
+	CField::Create(CObject3D::TYPE_NONE, D3DXVECTOR3(68600.0f, 0.0f, 0.0f));
+	CField::Create(CObject3D::TYPE_NONE, D3DXVECTOR3(69300.0f, 0.0f, 0.0f));
+	CField::Create(CObject3D::TYPE_NONE, D3DXVECTOR3(70000.0f, 0.0f, 0.0f));
+
+	//CModel::Create(D3DXVECTOR3(0.0f, -101.0f, 0.0f), D3DXVECTOR3(0.0f, 0.0f, 0.0f), "data\\MODEL\\Ground00.x");
+	//CModel::Create(D3DXVECTOR3(100.0f, 0.0f, 0.0f), D3DXVECTOR3(0.0f, 0.0f, 0.0f), "data\\MODEL\\Ground00.x");
+
+	//CModel::Create(D3DXVECTOR3(0.0f, 0.0f, 0.0f), D3DXVECTOR3(0.0f, 0.0f, 0.0f),"data\\MODEL\\Ground01.x");
+	//CModel::Create(D3DXVECTOR3(200.0f, 0.0f, 0.0f), D3DXVECTOR3(0.0f, 0.0f, 0.0f), "data\\MODEL\\Ground01.x");
+
+	//CModel::Create(D3DXVECTOR3(0.0f, 0.0f, 0.0f), D3DXVECTOR3(0.0f, 0.0f, 0.0f), "data\\MODEL\\Ground02.x");
+	//CModel::Create(D3DXVECTOR3(400.0f, 0.0f, 0.0f), D3DXVECTOR3(0.0f, 0.0f, 0.0f), "data\\MODEL\\Ground02.x");
+
+	//CModel::Create(D3DXVECTOR3(0.0f, -801.0f, 0.0f), D3DXVECTOR3(0.0f, 0.0f, 0.0f), "data\\MODEL\\Ground03.x");
+	//CModel::Create(D3DXVECTOR3(800.0f, 0.0f, 0.0f), D3DXVECTOR3(0.0f, 0.0f, 0.0f), "data\\MODEL\\Ground03.x");
 
 	CWall::Create(CObject3D::TYPE_NONE, D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 
 	//プレイヤーの生成
-	m_pPlayerModel = CPlayerModel::Create(D3DXVECTOR3(0.0f, 0.0f, 0.0f), D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+	m_pPlayerModel = CPlayerModel::Create(D3DXVECTOR3(0.0f, 1.0f, 0.0f), D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 
 	//スコアの生成
 	m_pScore = CScore::Create(D3DXVECTOR3(800.0f, 50.0f, 0.0f));

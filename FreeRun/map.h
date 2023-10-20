@@ -43,6 +43,9 @@ public:
 private:
 
 	void ObjectSet(FILE *pFile);
+	void FieldSet(FILE *pFile);
+
+	static char *m_apFileName[4];		//ƒtƒ@ƒCƒ‹–¼
 };
 #endif // !_PLAYER_H_
 

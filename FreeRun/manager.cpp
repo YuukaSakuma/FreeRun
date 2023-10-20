@@ -154,7 +154,6 @@ void CScene::Draw(void)
 //==============================================================
 CManager::CManager()
 {
-	//m_pManager = NULL;
 	m_pCamera = NULL;
 	m_pDebugProc = NULL;
 	m_pFade = NULL;
@@ -183,7 +182,6 @@ HRESULT CManager::Init(HINSTANCE hInstance, HWND hWnd, BOOL hWindow)
 {
 	CNumber * pNum = NULL;
 
-	//m_pManager = NULL;
 	m_pRenderer = NULL;
 	m_pCamera = NULL;
 	m_pDebugProc = NULL;
@@ -339,10 +337,6 @@ void CManager::Uninit(void)
 		m_pTexture = NULL;
 	}
 
-
-	//m_pTexture->Unload();
-	//m_pTexture = NULL;
-
 	//‘S‚Ä‚Ì¶¬
 	CObject::ReleseAll();
 
@@ -404,8 +398,6 @@ void CManager::Uninit(void)
 		delete m_pInputKeyboard;
 		m_pInputKeyboard = NULL;
 	}
-
-	
 }
 
 //==============================================================

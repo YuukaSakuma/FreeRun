@@ -74,6 +74,7 @@ HRESULT CObjectX::Init(void)
 {
 	m_pos = GetPosition();
 
+
 	//モデルのサイズ設定
 	CObjectX::SetObject();
 
@@ -229,7 +230,7 @@ void CObjectX::SetObject(void)
 	{
 		D3DXVECTOR3 vtx = *(D3DXVECTOR3*)pVtxBuff;			//頂点座標の代入
 
-															//全ての頂点を比較してモデルの最大値を抜き出す
+		//全ての頂点を比較してモデルの最大値を抜き出す
 		if (vtx.x > m_vtxMax.x)
 		{
 			m_vtxMax.x = vtx.x;

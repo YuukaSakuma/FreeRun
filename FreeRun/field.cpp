@@ -84,7 +84,7 @@ HRESULT CField::Init(void)
 void CField::Uninit(void)
 {
 	////オブジェクト2Dの終了処理
-	//CObject3D::Uninit();
+	CObject3D::Uninit();
 }
 
 //==============================================================
