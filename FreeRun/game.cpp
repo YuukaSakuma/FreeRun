@@ -36,7 +36,7 @@ bool CGame::m_bReset = true;					//リセットしたかどうか
 //==============================================================
 CGame::CGame()
 {
-
+	nData = 0;
 }
 
 //==============================================================
@@ -76,15 +76,15 @@ HRESULT CGame::Init(void)
 	//CModel::Create(D3DXVECTOR3(800.0f, 0.0f, 0.0f), D3DXVECTOR3(0.0f, 0.0f, 0.0f), "data\\MODEL\\Ground03.x");
 
 	//プレイヤーの生成
-	m_pPlayerModel = CPlayerModel::Create(D3DXVECTOR3(42000.0f, 800.0f, 0.0f), D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+	m_pPlayerModel = CPlayerModel::Create(D3DXVECTOR3(0.0f, 800.0f, 0.0f), D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 
 	//スコアの生成
 	m_pScore = CScore::Create(D3DXVECTOR3(800.0f, 50.0f, 0.0f));
 	m_pScore->Set(START_SCORE);
 
-	// タイムの生成
-	m_pTime = CTime::Create(D3DXVECTOR3(550.0f, 50.0f, 0.0f));
-	m_pTime->Set(START_TIME);
+	//// タイムの生成
+	//m_pTime = CTime::Create(D3DXVECTOR3(550.0f, 50.0f, 0.0f));
+	//m_pTime->Set(START_TIME);
 
 	CSound::Play(CSound::SOUND_LABEL_BGM001);
 
@@ -120,13 +120,13 @@ void CGame::Uninit(void)
 	}
 
 
-	// タイム
-	if (m_pTime != NULL)
-	{
-		m_pTime->Uninit();
-		delete m_pTime;	// メモリの開放
-		m_pTime = NULL;	// 使用していない状態にする
-	}
+	//// タイム
+	//if (m_pTime != NULL)
+	//{
+	//	m_pTime->Uninit();
+	//	delete m_pTime;	// メモリの開放
+	//	m_pTime = NULL;	// 使用していない状態にする
+	//}
 
 	if (m_pMap != NULL)
 	{
@@ -149,18 +149,35 @@ void CGame::Update(void)
 	CInputKeyboard *pInputKeyboard = CManager::Get()->GetInputKeybard();		//キーボードの情報取得
 						
 	D3DXVECTOR3 pos = m_pPlayerModel->GetPosition();
-
 	
 
-	if (m_pTime != NULL)
-	{// タイム
-		m_pTime->Update();
-		//if (m_pTime->GetNum() <= 0)
-		//{// 時間切れ
-		//	CManager::Get()->GetFade()->Set(CScene::MODE_RESULT);
-		//}
+	if (pos.x >= 70000.0f)
+	{
+		nData++;
+
+		if (nData == 100)
+		{
+			m_pScore->Add(10000);
+		}
+		if (nData >= 100)
+		{
+			CManager::Get()->GetFade()->Set(MODE_RESULT);
+		}
 	}
 
+	
+	//if (m_pTime != NULL)
+	//{// タイム
+	//	m_pTime->Update();
+	//	//if (m_pTime->GetNum() <= 0)
+	//	//{// 時間切れ
+	//	//	CManager::Get()->GetFade()->Set(CScene::MODE_RESULT);
+	//	//}
+	//}
+	if (pos.y <= -100.0f)
+	{
+		CManager::Get()->GetFade()->Set(MODE_RESULT);
+	} 
 	
 
 	if (m_pPlayerModel != NULL)
@@ -179,6 +196,7 @@ void CGame::Update(void)
 	}
 
 	pDebugProc->Print("\nゲーム\n");
+	pDebugProc->Print("画面遷移まで : %d\n",nData);
 }
 
 //==============================================================

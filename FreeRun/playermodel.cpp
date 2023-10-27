@@ -23,7 +23,7 @@
 //マクロ定義
 #define WIDTH (50.0f)	//横幅
 #define HEIGHT (80.0f)	//高さ
-#define LIFE (150)		//体力
+#define LIFE (1)		//体力
 #define SPEED (2.0f)		//素早さ
 #define PLAYER_JUMP (80.0f)
 #define PLAYER_GRAVITY (-4.0f)
@@ -123,6 +123,7 @@ CPlayerModel::CPlayerModel(D3DXVECTOR3 pos, D3DXVECTOR3 rot)
 
 	m_bAutoMove = false;
 	m_bSecondJump = false;
+	m_bHit = false;
 }
 
 //==============================================================
@@ -360,11 +361,11 @@ void CPlayerModel::Control(void)
 	D3DXVECTOR3 CameraRot = pCmamera->GetRotation();
 
 
-	if (m_pos.y >= 0.0f)
+	/*if (m_pos.y >= 0.0f)
 	{
 		pCmamera->SetPositionVY(m_pos.y + 200.0f + sinf(m_rot.x) * 3000.0f);
 		pCmamera->SetPositionRY(m_pos.y + 200.0f + sinf(m_rot.x) * 3000.0f);
-	}
+	}*/
 
 	m_fRotMove = m_rot.y;
 	m_fRotDest = m_rot.y;
@@ -405,7 +406,7 @@ void CPlayerModel::Control(void)
 //==============================================================
 void CPlayerModel::Screen(void)
 {
-	if (m_pos.y <= /*-50*/0.0f)
+	if (m_pos.y <= -500.0f)
 	{//画面下に出たら
 		//if (m_bJump == true)
 		//{//ジャンプしてたら
@@ -420,8 +421,8 @@ void CPlayerModel::Screen(void)
 			m_bLand = true;		//着地した
 		//}
 
-		m_pos.y = 0.0f;
-		m_move.y = 0.0f;
+		m_pos.y = -500.0f;
+		m_move.y = -500.0f;
 
 		m_bJump = false;
 		m_bSecondJump = false;
@@ -468,7 +469,7 @@ void CPlayerModel::Walk(void)
 	}
 
 
-	if (m_bAutoMove == true)
+	if (m_bAutoMove == false)
 	{
 		m_nCntStart--;
 
@@ -486,7 +487,7 @@ void CPlayerModel::Walk(void)
 		}
 		pDebugProc->Print("自動移動状態 \n");
 	}
-	else if (m_bAutoMove == false)
+	else if (m_bAutoMove == true)
 	{
 		//キーが押されたとき
 		if (pInputKeyboard->GetPress(DIK_A) == true)

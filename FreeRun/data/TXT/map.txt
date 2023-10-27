@@ -48,6 +48,12 @@ END_OBJECTSET
 
 SET_OBJECT
 	TYPE = 3
+	POS = 3200.00 -801.00 0.00
+	ROT = 0.00 0.00 0.00
+END_OBJECTSET
+
+SET_OBJECT
+	TYPE = 3
 	POS = 70100.00 -801.00 0.00
 	ROT = 0.00 0.00 0.00
 END_OBJECTSET
@@ -516,19 +522,6 @@ END_OBJECTSET
 SET_OBJECT
 	TYPE = 4
 	POS = 68900.00 200.00 0.00
-	ROT = 0.00 0.00 0.00
-END_OBJECTSET
-
-
-
-
-
-*---------------------------------------------------
-*	デバッグ用足場
-*---------------------------------------------------
-SET_OBJECT
-	TYPE = 2
-	POS = 44100.00 0.00 0.00
 	ROT = 0.00 0.00 0.00
 END_OBJECTSET
 

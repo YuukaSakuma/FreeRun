@@ -88,6 +88,7 @@ private:
 
 	bool m_bAutoMove;
 	bool m_bSecondJump;
+	bool m_bHit;
 
 };
 #endif // !_PLAYER_H_

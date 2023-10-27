@@ -94,117 +94,124 @@ void CCamera::Update(void)
 
 	if (CManager::GetMode() == CScene::MODE_GAME)
 	{
-		//if (pPlayer->GetPosition().x <= 70000.0f)
-		//{
-
+		if (pPlayer->GetPosition().x <= 69000.0f)
+		{
 			//追従
 			Move();
-		//}
+		}
+		/*else if (pPlayer->GetPosition().x > 70000.0f)
+		{
+			m_posV.y = pPlayer->GetPosition().y + 200.0f + sinf(pPlayer->GetRotation().y + D3DX_PI) * 0.0f;
+			m_posV.x = 70000.0f + sinf(pPlayer->GetRotation().y + D3DX_PI);
+
+			m_posR.y = pPlayer->GetPosition().y + 200.0f + sinf(pPlayer->GetRotation().y + D3DX_PI) * 0.0f;
+			m_posR.x = 70000.0f + sinf(pPlayer->GetRotation().y + D3DX_PI);
+		}*/
 
 		
 	}
 
-	//キーが押されたとき
-	if (pInputKeyboard->GetPress(DIK_J) == true)
-	{//Aキーが押された
-		if (pInputKeyboard->GetPress(DIK_I) == true)
-		{//左上移動
-			m_posV.x += cosf(m_rot.y + -D3DX_PI * CURVE4) * MOVE;
-			m_posV.z += sinf(m_rot.y + -D3DX_PI * CURVE4) * MOVE;
-			m_posR.x += cosf(m_rot.y + -D3DX_PI * CURVE4) * MOVE;
-			m_posR.z += sinf(m_rot.y + -D3DX_PI * CURVE4) * MOVE;
-		}
-		else if (pInputKeyboard->GetPress(DIK_K) == true)
-		{//左下移動
-			m_posV.x += cosf(m_rot.y + -D3DX_PI * CURVE2) * MOVE;
-			m_posV.z += sinf(m_rot.y + -D3DX_PI * CURVE2) * MOVE;
-			m_posR.x += cosf(m_rot.y + -D3DX_PI * CURVE2) * MOVE;
-			m_posR.z += sinf(m_rot.y + -D3DX_PI * CURVE2) * MOVE;
-		}
-		else
-		{//左移動			
-			m_posV.x += cosf(m_rot.y + -D3DX_PI * CURVE3) * MOVE;
-			m_posV.z += sinf(m_rot.y + -D3DX_PI * CURVE3) * MOVE;
-			m_posR.x += cosf(m_rot.y + -D3DX_PI * CURVE3) * MOVE;
-			m_posR.z += sinf(m_rot.y + -D3DX_PI * CURVE3) * MOVE;
-		}
-	}
-	else if (pInputKeyboard->GetPress(DIK_L) == true)
-	{//Dキーが押された
+	////キーが押されたとき
+	//if (pInputKeyboard->GetPress(DIK_J) == true)
+	//{//Aキーが押された
+	//	if (pInputKeyboard->GetPress(DIK_I) == true)
+	//	{//左上移動
+	//		m_posV.x += cosf(m_rot.y + -D3DX_PI * CURVE4) * MOVE;
+	//		m_posV.z += sinf(m_rot.y + -D3DX_PI * CURVE4) * MOVE;
+	//		m_posR.x += cosf(m_rot.y + -D3DX_PI * CURVE4) * MOVE;
+	//		m_posR.z += sinf(m_rot.y + -D3DX_PI * CURVE4) * MOVE;
+	//	}
+	//	else if (pInputKeyboard->GetPress(DIK_K) == true)
+	//	{//左下移動
+	//		m_posV.x += cosf(m_rot.y + -D3DX_PI * CURVE2) * MOVE;
+	//		m_posV.z += sinf(m_rot.y + -D3DX_PI * CURVE2) * MOVE;
+	//		m_posR.x += cosf(m_rot.y + -D3DX_PI * CURVE2) * MOVE;
+	//		m_posR.z += sinf(m_rot.y + -D3DX_PI * CURVE2) * MOVE;
+	//	}
+	//	else
+	//	{//左移動			
+	//		m_posV.x += cosf(m_rot.y + -D3DX_PI * CURVE3) * MOVE;
+	//		m_posV.z += sinf(m_rot.y + -D3DX_PI * CURVE3) * MOVE;
+	//		m_posR.x += cosf(m_rot.y + -D3DX_PI * CURVE3) * MOVE;
+	//		m_posR.z += sinf(m_rot.y + -D3DX_PI * CURVE3) * MOVE;
+	//	}
+	//}
+	//else if (pInputKeyboard->GetPress(DIK_L) == true)
+	//{//Dキーが押された
 
-		if (pInputKeyboard->GetPress(DIK_I) == true)
-		{//右上移動
-			m_posV.x += cosf(m_rot.y + D3DX_PI * CURVE4) * MOVE;
-			m_posV.z += sinf(m_rot.y + D3DX_PI * CURVE4) * MOVE;
-			m_posR.x += cosf(m_rot.y + D3DX_PI * CURVE4) * MOVE;
-			m_posR.z += sinf(m_rot.y + D3DX_PI * CURVE4) * MOVE;
-		}
-		else if (pInputKeyboard->GetPress(DIK_K) == true)
-		{//右下移動
-			m_posV.x += cosf(m_rot.y + D3DX_PI * CURVE2) * MOVE;
-			m_posV.z += sinf(m_rot.y + D3DX_PI * CURVE2) * MOVE;
-			m_posR.x += cosf(m_rot.y + D3DX_PI * CURVE2) * MOVE;
-			m_posR.z += sinf(m_rot.y + D3DX_PI * CURVE2) * MOVE;
-		}
-		else
-		{//右移動
-			m_posV.x += cosf(m_rot.y + D3DX_PI * CURVE3) * MOVE;
-			m_posV.z += sinf(m_rot.y + D3DX_PI * CURVE3) * MOVE;
-			m_posR.x += cosf(m_rot.y + D3DX_PI * CURVE3) * MOVE;
-			m_posR.z += sinf(m_rot.y + D3DX_PI * CURVE3) * MOVE;
-		}
-	}
-	else if (pInputKeyboard->GetPress(DIK_I) == true)
-	{//Wキーが押された
-		m_posV.x += cosf(m_rot.y + -D3DX_PI * CURVE1) * MOVE;
-		m_posV.z += sinf(m_rot.y + -D3DX_PI * CURVE1) * MOVE;
-		m_posR.x += cosf(m_rot.y + -D3DX_PI * CURVE1) * MOVE;
-		m_posR.z += sinf(m_rot.y + -D3DX_PI * CURVE1) * MOVE;
+	//	if (pInputKeyboard->GetPress(DIK_I) == true)
+	//	{//右上移動
+	//		m_posV.x += cosf(m_rot.y + D3DX_PI * CURVE4) * MOVE;
+	//		m_posV.z += sinf(m_rot.y + D3DX_PI * CURVE4) * MOVE;
+	//		m_posR.x += cosf(m_rot.y + D3DX_PI * CURVE4) * MOVE;
+	//		m_posR.z += sinf(m_rot.y + D3DX_PI * CURVE4) * MOVE;
+	//	}
+	//	else if (pInputKeyboard->GetPress(DIK_K) == true)
+	//	{//右下移動
+	//		m_posV.x += cosf(m_rot.y + D3DX_PI * CURVE2) * MOVE;
+	//		m_posV.z += sinf(m_rot.y + D3DX_PI * CURVE2) * MOVE;
+	//		m_posR.x += cosf(m_rot.y + D3DX_PI * CURVE2) * MOVE;
+	//		m_posR.z += sinf(m_rot.y + D3DX_PI * CURVE2) * MOVE;
+	//	}
+	//	else
+	//	{//右移動
+	//		m_posV.x += cosf(m_rot.y + D3DX_PI * CURVE3) * MOVE;
+	//		m_posV.z += sinf(m_rot.y + D3DX_PI * CURVE3) * MOVE;
+	//		m_posR.x += cosf(m_rot.y + D3DX_PI * CURVE3) * MOVE;
+	//		m_posR.z += sinf(m_rot.y + D3DX_PI * CURVE3) * MOVE;
+	//	}
+	//}
+	//else if (pInputKeyboard->GetPress(DIK_I) == true)
+	//{//Wキーが押された
+	//	m_posV.x += cosf(m_rot.y + -D3DX_PI * CURVE1) * MOVE;
+	//	m_posV.z += sinf(m_rot.y + -D3DX_PI * CURVE1) * MOVE;
+	//	m_posR.x += cosf(m_rot.y + -D3DX_PI * CURVE1) * MOVE;
+	//	m_posR.z += sinf(m_rot.y + -D3DX_PI * CURVE1) * MOVE;
 
-	}
-	else if (pInputKeyboard->GetPress(DIK_K) == true)
-	{//Sキーが押された
-		m_posV.x += cosf(m_rot.y + D3DX_PI * CURVE) * MOVE;
-		m_posV.z += sinf(m_rot.y + D3DX_PI * CURVE) * MOVE;
-		m_posR.x += cosf(m_rot.y + D3DX_PI * CURVE) * MOVE;
-		m_posR.z += sinf(m_rot.y + D3DX_PI * CURVE) * MOVE;
-	}
+	//}
+	//else if (pInputKeyboard->GetPress(DIK_K) == true)
+	//{//Sキーが押された
+	//	m_posV.x += cosf(m_rot.y + D3DX_PI * CURVE) * MOVE;
+	//	m_posV.z += sinf(m_rot.y + D3DX_PI * CURVE) * MOVE;
+	//	m_posR.x += cosf(m_rot.y + D3DX_PI * CURVE) * MOVE;
+	//	m_posR.z += sinf(m_rot.y + D3DX_PI * CURVE) * MOVE;
+	//}
 
-	//視点
-	if (pInputKeyboard->GetPress(DIK_Z) == true)
-	{//Zキーが押された
-		m_rot.y += MOVE1;
-	}
-	else if (pInputKeyboard->GetPress(DIK_C) == true)
-	{//Cキーが押された
-		m_rot.y -= MOVE1;
-	}
-	else if (pInputKeyboard->GetPress(DIK_Y) == true)
-	{//Yキーが押された
-		m_rot.x -= MOVE1;
-	}
-	else if (pInputKeyboard->GetPress(DIK_N) == true)
-	{//Nキーが押された
-		m_rot.x += MOVE1;
-	}
+	////視点
+	//if (pInputKeyboard->GetPress(DIK_Z) == true)
+	//{//Zキーが押された
+	//	m_rot.y += MOVE1;
+	//}
+	//else if (pInputKeyboard->GetPress(DIK_C) == true)
+	//{//Cキーが押された
+	//	m_rot.y -= MOVE1;
+	//}
+	//else if (pInputKeyboard->GetPress(DIK_Y) == true)
+	//{//Yキーが押された
+	//	m_rot.x -= MOVE1;
+	//}
+	//else if (pInputKeyboard->GetPress(DIK_N) == true)
+	//{//Nキーが押された
+	//	m_rot.x += MOVE1;
+	//}
 
-	//注視点
-	if (pInputKeyboard->GetPress(DIK_Q) == true)
-	{//Qキーが押された
-		m_rot.y += MOVE1;
-	}
-	else if (pInputKeyboard->GetPress(DIK_E) == true)
-	{//Eキーが押された
-		m_rot.y -= MOVE1;
-	}
-	else if (pInputKeyboard->GetPress(DIK_T) == true)
-	{//Tキーが押された
-		m_rot.x += MOVE1;
-	}
-	else if (pInputKeyboard->GetPress(DIK_B) == true)
-	{//Bキーが押された
-		m_rot.x -= MOVE1;
-	}
+	////注視点
+	//if (pInputKeyboard->GetPress(DIK_Q) == true)
+	//{//Qキーが押された
+	//	m_rot.y += MOVE1;
+	//}
+	//else if (pInputKeyboard->GetPress(DIK_E) == true)
+	//{//Eキーが押された
+	//	m_rot.y -= MOVE1;
+	//}
+	//else if (pInputKeyboard->GetPress(DIK_T) == true)
+	//{//Tキーが押された
+	//	m_rot.x += MOVE1;
+	//}
+	//else if (pInputKeyboard->GetPress(DIK_B) == true)
+	//{//Bキーが押された
+	//	m_rot.x -= MOVE1;
+	//}
 
 	if (m_rot.y > D3DX_PI)
 	{
@@ -318,7 +325,7 @@ void CCamera::Move(void)
 	//目的の注視点を設定
 
 	m_posRDest.x = (pPlayer->GetPosition().x + 1000.0f) + sinf(pPlayer->GetRotation().y + D3DX_PI) * 0.0f;
-	m_posRDest.y = (pPlayer->GetPosition().y + 500.0f) + sinf(pPlayer->GetRotation().y + D3DX_PI) * 0.0f;
+	m_posRDest.y = (pPlayer->GetPosition().y + 200.0f) + sinf(pPlayer->GetRotation().y + D3DX_PI) * 0.0f;
 	m_posRDest.z = pPlayer->GetPosition().z + cosf(pPlayer->GetRotation().y + D3DX_PI) * 0.0f;
 
 	//目的の視点を設定

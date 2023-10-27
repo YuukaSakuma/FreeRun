@@ -13,6 +13,8 @@
 #include<string.h>
 #include"object.h"
 #include"material.h"
+#include"game.h"
+#include"playermodel.h"
 
 //==============================================================
 //コンストラクタ
@@ -270,6 +272,8 @@ void CObjectX::SetObject(void)
 //==============================================================
 bool CObjectX::Collision(D3DXVECTOR3 *pPos, D3DXVECTOR3 *pPosOld, D3DXVECTOR3 *pMove, D3DXVECTOR3 Min, D3DXVECTOR3 Max)
 {
+
+	CPlayerModel *pPlayer = CGame::GetPlayerModel();			//プレイヤーの情報取得
 	bool bLand = false;
 
 	for (int nCntModel = 0; nCntModel < MAX_OBJECT; nCntModel++)
@@ -300,7 +304,11 @@ bool CObjectX::Collision(D3DXVECTOR3 *pPos, D3DXVECTOR3 *pPosOld, D3DXVECTOR3 *p
 						&& pPos->z + Min.z < posModel.z + maxModel.z)
 					{//左にめり込んだ場合
 						pPos->x = posModel.x + minModel.x + Min.z;		//ブロックの左に立たせる
-						pMove->x = 0.0f;		
+						pMove->x = 0.0f;
+
+						pPlayer->Hit();
+
+						//pObj->Hit();
 					}
 
 					if (pPosOld->x + Min.z >= posModel.x + maxModel.x
@@ -309,7 +317,11 @@ bool CObjectX::Collision(D3DXVECTOR3 *pPos, D3DXVECTOR3 *pPosOld, D3DXVECTOR3 *p
 						&& pPos->z + Min.z < posModel.z + maxModel.z)
 					{//右にめり込んだ場合
 						pPos->x = posModel.x + maxModel.x - Min.z;		//ブロックの右に立たせる
-						pMove->x = 0.0f;		
+						pMove->x = 0.0f;
+
+						pPlayer->Hit();
+
+						//pObj->Hit();
 					}
 
 					if (pPosOld->z - Min.z <= posModel.z + minModel.z
@@ -318,7 +330,7 @@ bool CObjectX::Collision(D3DXVECTOR3 *pPos, D3DXVECTOR3 *pPosOld, D3DXVECTOR3 *p
 						&& pPos->x + Min.z < posModel.x + maxModel.x)
 					{//手前にめり込んだ場合
 						pPos->z = posModel.z + minModel.z + Min.z;		//ブロックの手前に立たせる
-						pMove->z = 0.0f;		
+						pMove->z = 0.0f;
 					}
 
 					if (pPosOld->z + Min.z >= posModel.z + maxModel.z
@@ -327,7 +339,7 @@ bool CObjectX::Collision(D3DXVECTOR3 *pPos, D3DXVECTOR3 *pPosOld, D3DXVECTOR3 *p
 						&& pPos->x + Min.z < posModel.x + maxModel.x)
 					{//奥にめり込んだ場合
 						pPos->z = posModel.z + maxModel.z - Min.z;		//ブロックの奥に立たせる
-						pMove->z = 0.0f;		
+						pMove->z = 0.0f;
 					}
 
 					if (pPosOld->y + Max.y <= posModel.y + minModel.y
@@ -339,7 +351,7 @@ bool CObjectX::Collision(D3DXVECTOR3 *pPos, D3DXVECTOR3 *pPosOld, D3DXVECTOR3 *p
 					{//底にめり込んだ場合
 
 						pPos->y = posModel.y + minModel.y - Max.y;		//ブロックの底下に立たせる
-						pMove->y = 0.0f;		
+						pMove->y = 0.0f;
 					}
 
 					if (pPosOld->y >= posModel.y + maxModel.y
@@ -351,7 +363,7 @@ bool CObjectX::Collision(D3DXVECTOR3 *pPos, D3DXVECTOR3 *pPosOld, D3DXVECTOR3 *p
 					{//上にめり込んだ場合
 
 						pPos->y = posModel.y + maxModel.y;		//ブロックの上に立たせる
-						pMove->y = 0.0f;	
+						pMove->y = 0.0f;
 
 						bLand = true;
 					}

@@ -50,6 +50,8 @@ private:
 	static CMap *m_pMap;
 	//static CLife *m_pLife;
 
+	int nData;
+
 	static bool m_bReset;				//ƒŠƒZƒbƒg‚µ‚½‚©
 };
 #endif // !_PLAYER_H_

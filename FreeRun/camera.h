@@ -32,7 +32,6 @@ public:
 	D3DXVECTOR3 GetRotation(void) { return m_rot; }			//向き取得
 
 	void Move(void);
-	void RotCorrection(void);
 
 private:
 	D3DXMATRIX m_mtxView;					//ビューマトリックス
