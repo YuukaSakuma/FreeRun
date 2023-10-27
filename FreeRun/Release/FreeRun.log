@@ -1,14 +1,51 @@
 ﻿  camera.cpp
-  field.cpp
   game.cpp
+  manager.cpp
   map.cpp
-  object3D.cpp
-  objectX.cpp
   playermodel.cpp
+  texture.cpp
+  wall.cpp
   コード生成しています。
-  22 of 480 functions ( 4.6%) were compiled, the rest were copied from previous compilation.
+  27 of 474 functions ( 5.7%) were compiled, the rest were copied from previous compilation.
     1 functions were new in current compilation
     53 functions had inline decision re-evaluated but remain unchanged
   コード生成が終了しました。
+bg.obj : warning LNK4099: PDB 'vc140.pdb' が 'bg.obj' で、または 'C:\Users\student\Desktop\FreeRun\FreeRun\vc140.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
+billboard.obj : warning LNK4099: PDB 'vc140.pdb' が 'billboard.obj' で、または 'C:\Users\student\Desktop\FreeRun\FreeRun\vc140.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
+block.obj : warning LNK4099: PDB 'vc140.pdb' が 'block.obj' で、または 'C:\Users\student\Desktop\FreeRun\FreeRun\vc140.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
+blockX.obj : warning LNK4099: PDB 'vc140.pdb' が 'blockX.obj' で、または 'C:\Users\student\Desktop\FreeRun\FreeRun\vc140.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
+debugproc.obj : warning LNK4099: PDB 'vc140.pdb' が 'debugproc.obj' で、または 'C:\Users\student\Desktop\FreeRun\FreeRun\vc140.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
+edit.obj : warning LNK4099: PDB 'vc140.pdb' が 'edit.obj' で、または 'C:\Users\student\Desktop\FreeRun\FreeRun\vc140.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
+effect.obj : warning LNK4099: PDB 'vc140.pdb' が 'effect.obj' で、または 'C:\Users\student\Desktop\FreeRun\FreeRun\vc140.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
+explosion.obj : warning LNK4099: PDB 'vc140.pdb' が 'explosion.obj' で、または 'C:\Users\student\Desktop\FreeRun\FreeRun\vc140.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
+fade.obj : warning LNK4099: PDB 'vc140.pdb' が 'fade.obj' で、または 'C:\Users\student\Desktop\FreeRun\FreeRun\vc140.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
+field.obj : warning LNK4099: PDB 'vc140.pdb' が 'field.obj' で、または 'C:\Users\student\Desktop\FreeRun\FreeRun\vc140.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
+input.obj : warning LNK4099: PDB 'vc140.pdb' が 'input.obj' で、または 'C:\Users\student\Desktop\FreeRun\FreeRun\vc140.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
+life.obj : warning LNK4099: PDB 'vc140.pdb' が 'life.obj' で、または 'C:\Users\student\Desktop\FreeRun\FreeRun\vc140.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
+light.obj : warning LNK4099: PDB 'vc140.pdb' が 'light.obj' で、または 'C:\Users\student\Desktop\FreeRun\FreeRun\vc140.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
+main.obj : warning LNK4099: PDB 'vc140.pdb' が 'main.obj' で、または 'C:\Users\student\Desktop\FreeRun\FreeRun\vc140.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
+material.obj : warning LNK4099: PDB 'vc140.pdb' が 'material.obj' で、または 'C:\Users\student\Desktop\FreeRun\FreeRun\vc140.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
+model.obj : warning LNK4099: PDB 'vc140.pdb' が 'model.obj' で、または 'C:\Users\student\Desktop\FreeRun\FreeRun\vc140.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
+modelHierarchy.obj : warning LNK4099: PDB 'vc140.pdb' が 'modelHierarchy.obj' で、または 'C:\Users\student\Desktop\FreeRun\FreeRun\vc140.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
+motion.obj : warning LNK4099: PDB 'vc140.pdb' が 'motion.obj' で、または 'C:\Users\student\Desktop\FreeRun\FreeRun\vc140.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
+multibg.obj : warning LNK4099: PDB 'vc140.pdb' が 'multibg.obj' で、または 'C:\Users\student\Desktop\FreeRun\FreeRun\vc140.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
+number.obj : warning LNK4099: PDB 'vc140.pdb' が 'number.obj' で、または 'C:\Users\student\Desktop\FreeRun\FreeRun\vc140.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
+object.obj : warning LNK4099: PDB 'vc140.pdb' が 'object.obj' で、または 'C:\Users\student\Desktop\FreeRun\FreeRun\vc140.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
+object2D.obj : warning LNK4099: PDB 'vc140.pdb' が 'object2D.obj' で、または 'C:\Users\student\Desktop\FreeRun\FreeRun\vc140.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
+object3D.obj : warning LNK4099: PDB 'vc140.pdb' が 'object3D.obj' で、または 'C:\Users\student\Desktop\FreeRun\FreeRun\vc140.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
+objectX.obj : warning LNK4099: PDB 'vc140.pdb' が 'objectX.obj' で、または 'C:\Users\student\Desktop\FreeRun\FreeRun\vc140.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
+particle.obj : warning LNK4099: PDB 'vc140.pdb' が 'particle.obj' で、または 'C:\Users\student\Desktop\FreeRun\FreeRun\vc140.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
+pause.obj : warning LNK4099: PDB 'vc140.pdb' が 'pause.obj' で、または 'C:\Users\student\Desktop\FreeRun\FreeRun\vc140.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
+polygon.obj : warning LNK4099: PDB 'vc140.pdb' が 'polygon.obj' で、または 'C:\Users\student\Desktop\FreeRun\FreeRun\vc140.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
+precompile.obj : warning LNK4099: PDB 'vc140.pdb' が 'precompile.obj' で、または 'C:\Users\student\Desktop\FreeRun\FreeRun\vc140.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
+ranking.obj : warning LNK4099: PDB 'vc140.pdb' が 'ranking.obj' で、または 'C:\Users\student\Desktop\FreeRun\FreeRun\vc140.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
+renderer.obj : warning LNK4099: PDB 'vc140.pdb' が 'renderer.obj' で、または 'C:\Users\student\Desktop\FreeRun\FreeRun\vc140.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
+result.obj : warning LNK4099: PDB 'vc140.pdb' が 'result.obj' で、または 'C:\Users\student\Desktop\FreeRun\FreeRun\vc140.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
+score.obj : warning LNK4099: PDB 'vc140.pdb' が 'score.obj' で、または 'C:\Users\student\Desktop\FreeRun\FreeRun\vc140.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
+sound.obj : warning LNK4099: PDB 'vc140.pdb' が 'sound.obj' で、または 'C:\Users\student\Desktop\FreeRun\FreeRun\vc140.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
+time.obj : warning LNK4099: PDB 'vc140.pdb' が 'time.obj' で、または 'C:\Users\student\Desktop\FreeRun\FreeRun\vc140.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
+title.obj : warning LNK4099: PDB 'vc140.pdb' が 'title.obj' で、または 'C:\Users\student\Desktop\FreeRun\FreeRun\vc140.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
+titleTex.obj : warning LNK4099: PDB 'vc140.pdb' が 'titleTex.obj' で、または 'C:\Users\student\Desktop\FreeRun\FreeRun\vc140.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
+tutrial.obj : warning LNK4099: PDB 'vc140.pdb' が 'tutrial.obj' で、または 'C:\Users\student\Desktop\FreeRun\FreeRun\vc140.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
   FreeRun.vcxproj -> C:\Users\student\Desktop\FreeRun\FreeRun\FreeRun.exe
   FreeRun.vcxproj -> C:\Users\student\Desktop\FreeRun\FreeRun\FreeRun.pdb (Full PDB)

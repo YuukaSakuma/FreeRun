@@ -12,7 +12,7 @@
 #include"game.h"
 
 //マクロ定義
-#define LENGTH	(2000.0f)			//長さ
+#define LENGTH	(2500.0f)			//長さ
 #define POSVX	(0.0f)				//視点X
 #define POSVY	(0.0f)				//視点Y
 #define POSVZ	(0.0f)			//視点Z
@@ -89,11 +89,19 @@ void CCamera::Update(void)
 {
 	CInputKeyboard *pInputKeyboard = CManager::Get()->GetInputKeybard();	//キーボードの取得
 	CDebugProc *pDebugProc = CManager::Get()->GetDebugProc();
+	CPlayerModel *pPlayer = CGame::GetPlayerModel();			//プレイヤーの情報取得
+
 
 	if (CManager::GetMode() == CScene::MODE_GAME)
 	{
-		//追従
-		Move();
+		//if (pPlayer->GetPosition().x <= 70000.0f)
+		//{
+
+			//追従
+			Move();
+		//}
+
+		
 	}
 
 	//キーが押されたとき

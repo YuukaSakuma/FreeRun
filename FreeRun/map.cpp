@@ -12,14 +12,17 @@
 #include"blockX.h"
 #include"field.h"
 #include"model.h"
+#include"wall.h"
 
 //静的メンバ変数
-char *CMap::m_apFileName[4] =
+char *CMap::m_apFileName[MAX_MODEL] =
 {
 	"data\\MODEL\\Ground00.x",
 	"data\\MODEL\\Ground01.x",
 	"data\\MODEL\\Ground02.x",
 	"data\\MODEL\\Ground03.x",
+	"data\\MODEL\\Ground04.x",
+	"data\\MODEL\\Ground05.x",
 };
 //==============================================================
 //コンストラクタ
@@ -121,13 +124,13 @@ void CMap::ObjectSet(FILE *pFile)
 //===========================================================================================
 // オブジェクトの読み込み
 //===========================================================================================
-void CMap::FieldSet(FILE *pFile)
+void CMap::WallSet(FILE *pFile)
 {
 	D3DXVECTOR3 pos = {};
 	int nType = 0;
 	char not[128];
 
-	while (strcmp("END_FIELDSET", &not[0]) != 0)
+	while (strcmp("END_WALLSET", &not[0]) != 0)
 	{
 		fscanf(pFile, "%s", &not[0]);	//文字を読み込む
 
@@ -146,10 +149,10 @@ void CMap::FieldSet(FILE *pFile)
 		}
 	}
 
-	if (strcmp("END_FIELDSET", &not[0]) == 0)
+	if (strcmp("END_WALLSET", &not[0]) == 0)
 	{//文字が読み込まれたら
 	 //敵の設置
-		CField::Create(CObject3D::TYPE_NONE, D3DXVECTOR3(pos.x, pos.y, pos.z));
+		CWall::Create(CObject3D::TYPE_NONE, D3DXVECTOR3(pos.x, pos.y, pos.z));
 	}
 }
 
@@ -188,9 +191,9 @@ void CMap::Set(void)
 					{
 						ObjectSet(pFile);
 					}
-					if(strcmp("SET_FIELD", &not[0]) == 0)
+					if(strcmp("SET_WALL", &not[0]) == 0)
 					{
-						FieldSet(pFile);
+						WallSet(pFile);
 					}
 				}
 			}

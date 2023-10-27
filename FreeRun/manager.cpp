@@ -500,16 +500,16 @@ void CManager::CreateAll(void)
 //==============================================================
 void CManager::ResetMap(void)
 {
-	//リセット
-	if (m_pInputKeyboard->GetPress(DIK_F2) == true)
-	{//F2を押したとき
+	////リセット
+	//if (m_pInputKeyboard->GetPress(DIK_F2) == true)
+	//{//F2を押したとき
 
-		//マップのオブジェクトのリセット
-		CObject::ResetMapAll();
+	//	//マップのオブジェクトのリセット
+	//	CObject::ResetMapAll();
 
-		//オブジェクトの生成
-		CManager::CreateAll();
-	}
+	//	//オブジェクトの生成
+	//	CManager::CreateAll();
+	//}
 }
 
 //==============================================================

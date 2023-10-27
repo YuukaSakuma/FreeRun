@@ -25,6 +25,8 @@
 #define HEIGHT (80.0f)	//高さ
 #define LIFE (150)		//体力
 #define SPEED (2.0f)		//素早さ
+#define PLAYER_JUMP (80.0f)
+#define PLAYER_GRAVITY (-4.0f)
 
 //静的メンバ変数
 char *CPlayerModel::m_apFileName[15] =
@@ -279,20 +281,23 @@ void CPlayerModel::Update(void)
 	CPlayerModel::Control();
 
 	//重力
-	m_move.y -= 0.7f;
-
-	//位置を更新
-	m_pos += m_move;
+	m_move.y += PLAYER_GRAVITY;
 
 	//移動量を更新
 	m_move.x += (0.0f - m_move.x) * 0.1f;
 	m_move.z += (0.0f - m_move.z) * 0.1f;
 	m_move.y += (0.0f - m_move.y) * 0.1f;
 
+	//位置を更新
+	m_pos.x += m_move.x;
+	m_pos.y += m_move.y;
+	m_pos.z += m_move.z;
+
 	//当たり判定
 	if (CObjectX::Collision(&m_pos, &m_posOld, &m_move, m_min, m_max) == true)
 	{
 		m_bJump = false;	//ジャンプしてない状態にする
+		m_bSecondJump = false;
 		m_bLand = true;		//着地した状態にする
 	}
 
@@ -357,8 +362,8 @@ void CPlayerModel::Control(void)
 
 	if (m_pos.y >= 0.0f)
 	{
-		pCmamera->SetPositionVY(m_pos.y + 500.0f + sinf(m_rot.x) * 3000.0f);
-		pCmamera->SetPositionRY(m_pos.y + 500.0f + sinf(m_rot.x) * 3000.0f);
+		pCmamera->SetPositionVY(m_pos.y + 200.0f + sinf(m_rot.x) * 3000.0f);
+		pCmamera->SetPositionRY(m_pos.y + 200.0f + sinf(m_rot.x) * 3000.0f);
 	}
 
 	m_fRotMove = m_rot.y;
@@ -377,7 +382,7 @@ void CPlayerModel::Control(void)
 	{
 
 		//ジャンプする
-		m_move.y = 35.0f;
+		m_move.y = PLAYER_JUMP;
 
 		//ジャンプした状態にする
 		m_bJump = true;
@@ -596,7 +601,7 @@ void CPlayerModel::SetState(void)
 		{
 
 			//ジャンプする
-			m_move.y = 35.0f;
+			m_move.y = PLAYER_JUMP;
 
 			//ジャンプした状態にする
 			m_bSecondJump  = true;

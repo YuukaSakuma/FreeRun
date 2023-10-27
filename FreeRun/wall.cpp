@@ -10,8 +10,8 @@
 #include"wall.h"
 
 //マクロ定義
-#define WIDTH (1500.0f * 0.5f) //横幅
-#define HEIGHT (1500.0f * 0.5f) //高さ
+#define WIDTH (2000.0f * 2.0f) //横幅
+#define HEIGHT (2000.0f * 2.0f) //高さ
 #define VERTICL (0.0f)	//縦幅
 //vertical
 
@@ -78,7 +78,7 @@ HRESULT CWall::Init(void)
 {
 	CTexture * pTexture = CManager::Get()->GetTexturet();
 
-	m_nldxTexture = pTexture->Regist("data\\TEXTURE\\wall.jpg");
+	m_nldxTexture = pTexture->Regist("data\\TEXTURE\\wall00.jpg");
 
 	//オブジェクト2Dの初期化処理
 	CObject3D::Init(); 

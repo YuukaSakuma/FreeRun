@@ -31,6 +31,8 @@ class CMap
 
 public:
 
+#define MAX_MODEL (6)
+
 	CMap();								//コンストラクタ
 	~CMap();								//デストラクタ
 
@@ -43,9 +45,9 @@ public:
 private:
 
 	void ObjectSet(FILE *pFile);
-	void FieldSet(FILE *pFile);
+	void WallSet(FILE *pFile);
 
-	static char *m_apFileName[4];		//ファイル名
+	static char *m_apFileName[MAX_MODEL];		//ファイル名
 };
 #endif // !_PLAYER_H_
 

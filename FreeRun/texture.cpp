@@ -23,7 +23,7 @@ const char *CTexture::apTexture[TYPE_TEX_MAX] =
 	"data\\TEXTURE\\bg101.png",				//îwåi1
 	"data\\TEXTURE\\bg102.png",				//îwåi2
 	"data\\TEXTURE\\meadow.jpg",			//ÉtÉBÅ[ÉãÉh
-	"data\\TEXTURE\\wall.jpg",
+	"data\\TEXTURE\\wall00.jpg",
 	"data\\TEXTURE\\title_logo00.png",
 	"data\\TEXTURE\\pressenter.png",
 	"data\\TEXTURE\\bg.jpg",
