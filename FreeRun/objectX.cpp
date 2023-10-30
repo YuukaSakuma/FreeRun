@@ -287,7 +287,7 @@ bool CObjectX::Collision(D3DXVECTOR3 *pPos, D3DXVECTOR3 *pPosOld, D3DXVECTOR3 *p
 		 //種類を取得
 			CObject::TYPE type = pObj->GetType();
 
-			if (type == pObj->TYPE_MODEL || type == TYPE_ENEMY)
+			if (type == pObj->TYPE_MODEL || type == TYPE_ITEM)
 			{//種類がモデルの場合
 
 			 //モデルの位置取得
@@ -306,7 +306,14 @@ bool CObjectX::Collision(D3DXVECTOR3 *pPos, D3DXVECTOR3 *pPosOld, D3DXVECTOR3 *p
 						pPos->x = posModel.x + minModel.x + Min.z;		//ブロックの左に立たせる
 						pMove->x = 0.0f;
 
-						pPlayer->Hit();
+						if (type == pObj->TYPE_MODEL)
+						{
+							pPlayer->Hit();
+						}
+						if (type == pObj->TYPE_ITEM)
+						{
+							pObj->Hit();
+						}
 
 						//pObj->Hit();
 					}
@@ -319,7 +326,16 @@ bool CObjectX::Collision(D3DXVECTOR3 *pPos, D3DXVECTOR3 *pPosOld, D3DXVECTOR3 *p
 						pPos->x = posModel.x + maxModel.x - Min.z;		//ブロックの右に立たせる
 						pMove->x = 0.0f;
 
-						pPlayer->Hit();
+						if (type == pObj->TYPE_MODEL)
+						{
+							pPlayer->Hit();
+						}
+
+						if (type == pObj->TYPE_ITEM)
+						{
+							pObj->Hit();
+						}
+
 
 						//pObj->Hit();
 					}
@@ -331,6 +347,11 @@ bool CObjectX::Collision(D3DXVECTOR3 *pPos, D3DXVECTOR3 *pPosOld, D3DXVECTOR3 *p
 					{//手前にめり込んだ場合
 						pPos->z = posModel.z + minModel.z + Min.z;		//ブロックの手前に立たせる
 						pMove->z = 0.0f;
+
+						if (type == pObj->TYPE_ITEM)
+						{
+							pObj->Hit();
+						}
 					}
 
 					if (pPosOld->z + Min.z >= posModel.z + maxModel.z
@@ -340,6 +361,11 @@ bool CObjectX::Collision(D3DXVECTOR3 *pPos, D3DXVECTOR3 *pPosOld, D3DXVECTOR3 *p
 					{//奥にめり込んだ場合
 						pPos->z = posModel.z + maxModel.z - Min.z;		//ブロックの奥に立たせる
 						pMove->z = 0.0f;
+
+						if (type == pObj->TYPE_ITEM)
+						{
+							pObj->Hit();
+						}
 					}
 
 					if (pPosOld->y + Max.y <= posModel.y + minModel.y
@@ -352,6 +378,11 @@ bool CObjectX::Collision(D3DXVECTOR3 *pPos, D3DXVECTOR3 *pPosOld, D3DXVECTOR3 *p
 
 						pPos->y = posModel.y + minModel.y - Max.y;		//ブロックの底下に立たせる
 						pMove->y = 0.0f;
+
+						if (type == pObj->TYPE_ITEM)
+						{
+							pObj->Hit();
+						}
 					}
 
 					if (pPosOld->y >= posModel.y + maxModel.y
@@ -364,6 +395,11 @@ bool CObjectX::Collision(D3DXVECTOR3 *pPos, D3DXVECTOR3 *pPosOld, D3DXVECTOR3 *p
 
 						pPos->y = posModel.y + maxModel.y;		//ブロックの上に立たせる
 						pMove->y = 0.0f;
+
+						if (type == pObj->TYPE_ITEM)
+						{
+							pObj->Hit();
+						}
 
 						bLand = true;
 					}

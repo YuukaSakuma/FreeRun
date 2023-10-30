@@ -1,8 +1,16 @@
-﻿  game.cpp
+﻿  camera.cpp
+  game.cpp
+  itemX.cpp
+  life.cpp
+  manager.cpp
+  map.cpp
+  objectX.cpp
+  playermodel.cpp
+  tutrial.cpp
   コード生成しています。
-  1 of 463 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+  31 of 477 functions ( 6.5%) were compiled, the rest were copied from previous compilation.
+    14 functions were new in current compilation
+    67 functions had inline decision re-evaluated but remain unchanged
   コード生成が終了しました。
 input.obj : warning LNK4099: PDB 'vc140.pdb' が 'input.obj' で、または 'C:\Users\student\Desktop\FreeRun\FreeRun\vc140.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
 precompile.obj : warning LNK4099: PDB 'vc140.pdb' が 'precompile.obj' で、または 'C:\Users\student\Desktop\FreeRun\FreeRun\vc140.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。

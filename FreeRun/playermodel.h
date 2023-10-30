@@ -48,6 +48,7 @@ public:
 	void SetState(void);
 	
 	int GetLife(void) { return m_nLife; }
+	void SetCounter(int nCounter) { m_nCntScore = nCounter; }
 
 private:
 
@@ -63,7 +64,7 @@ private:
 
 	D3DXVECTOR3 m_Wpos;				//マップ位置
 
-	STATE m_state;			//種類
+	STATE m_state;					//種類
 
 	int m_nCntDamage;
 
@@ -82,13 +83,14 @@ private:
 
 	CMotion *m_pMotion;		//モーション情報
 
-	int m_nLife;
+	int m_nLife;			//体力
 
-	int m_nCntStart;
+	int m_nCntStart;		//開始までの時間
+	int m_nCntScore;		//スコア増加量の変化時間
 
-	bool m_bAutoMove;
-	bool m_bSecondJump;
-	bool m_bHit;
+	bool m_bAutoMove;		//自動移動するか
+	bool m_bSecondJump;		//二段ジャンプしているか
+	bool m_bHit;			//死んでいるか
 
 };
 #endif // !_PLAYER_H_

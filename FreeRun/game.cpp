@@ -17,6 +17,7 @@
 #include"map.h"
 #include"result.h"
 #include"life.h"
+#include"itemX.h"
 
 #define START_TIME (180)		//開始時間
 #define START_SCORE (0)			//開始スコア
@@ -54,29 +55,20 @@ HRESULT CGame::Init(void)
 {
 	CCamera *pCamera = CManager::Get()->GetCamera();		//カメラの情報取得
 
-	/*CObject3D *p = CObject3D::Create();
-	p->SetPosition(D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-	p->SetSize(1000.0f, 0.0f, 1000.0f);*/
-
 	//カメラの初期化処理
 	pCamera->Init();
 
 	m_pMap = CMap::Create();
 
-	//CModel::Create(D3DXVECTOR3(0.0f, -101.0f, 0.0f), D3DXVECTOR3(0.0f, 0.0f, 0.0f), "data\\MODEL\\Ground00.x");
-	//CModel::Create(D3DXVECTOR3(100.0f, 0.0f, 0.0f), D3DXVECTOR3(0.0f, 0.0f, 0.0f), "data\\MODEL\\Ground00.x");
-
-	//CModel::Create(D3DXVECTOR3(0.0f, 0.0f, 0.0f), D3DXVECTOR3(0.0f, 0.0f, 0.0f),"data\\MODEL\\Ground01.x");
-	//CModel::Create(D3DXVECTOR3(200.0f, 0.0f, 0.0f), D3DXVECTOR3(0.0f, 0.0f, 0.0f), "data\\MODEL\\Ground01.x");
-
-	//CModel::Create(D3DXVECTOR3(0.0f, 0.0f, 0.0f), D3DXVECTOR3(0.0f, 0.0f, 0.0f), "data\\MODEL\\Ground02.x");
-	//CModel::Create(D3DXVECTOR3(400.0f, 0.0f, 0.0f), D3DXVECTOR3(0.0f, 0.0f, 0.0f), "data\\MODEL\\Ground02.x");
-
-	//CModel::Create(D3DXVECTOR3(0.0f, -801.0f, 0.0f), D3DXVECTOR3(0.0f, 0.0f, 0.0f), "data\\MODEL\\Ground03.x");
-	//CModel::Create(D3DXVECTOR3(800.0f, 0.0f, 0.0f), D3DXVECTOR3(0.0f, 0.0f, 0.0f), "data\\MODEL\\Ground03.x");
+	CItemX::Create(D3DXVECTOR3(6600.0f, 1200.0f, 0.0f), D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+	CItemX::Create(D3DXVECTOR3(20100.0f, 1000.0f, 0.0f), D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+	CItemX::Create(D3DXVECTOR3(27800.0f, 1200.0f, 0.0f), D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+	CItemX::Create(D3DXVECTOR3(36500.0f, 1400.0f, 0.0f), D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+	CItemX::Create(D3DXVECTOR3(53600.0f, 1800.0f, 0.0f), D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+	CItemX::Create(D3DXVECTOR3(61800.0f, 1000.0f, 0.0f), D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 
 	//プレイヤーの生成
-	m_pPlayerModel = CPlayerModel::Create(D3DXVECTOR3(0.0f, 800.0f, 0.0f), D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+	m_pPlayerModel = CPlayerModel::Create(D3DXVECTOR3(/*600*/00.0f, /*80*/0.0f, 0.0f), D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 
 	//スコアの生成
 	m_pScore = CScore::Create(D3DXVECTOR3(800.0f, 50.0f, 0.0f));
@@ -98,8 +90,6 @@ void CGame::Uninit(void)
 {
 	CSound::Stop();
 
-	
-
 	//プレイヤーの破棄
 	if (m_pPlayerModel != NULL)
 	{
@@ -107,8 +97,6 @@ void CGame::Uninit(void)
 		//delete m_pPlayerModel;	// メモリの開放
 		//m_pPlayerModel = NULL;	// 使用していない状態にする
 	}
-
-	
 
 	// スコア
 	if (m_pScore != NULL)
@@ -150,6 +138,11 @@ void CGame::Update(void)
 						
 	D3DXVECTOR3 pos = m_pPlayerModel->GetPosition();
 	
+
+	if (pInputKeyboard->GetTrigger(DIK_F2) == true)
+	{//ENTERキー押したら
+		CItemX::Create(D3DXVECTOR3(0.0f, 100.0f, 0.0f), D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+	}
 
 	if (pos.x >= 70000.0f)
 	{

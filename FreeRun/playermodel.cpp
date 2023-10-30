@@ -19,6 +19,7 @@
 #include"particle.h"
 #include"life.h"
 #include"game.h"
+#include"score.h"
 
 //マクロ定義
 #define WIDTH (50.0f)	//横幅
@@ -81,6 +82,7 @@ CPlayerModel::CPlayerModel()
 	m_nLife = LIFE;
 
 	m_nCntStart = 100;
+	m_nCntScore = 0;
 
 	m_bAutoMove = false;
 	m_bSecondJump = false;
@@ -120,6 +122,7 @@ CPlayerModel::CPlayerModel(D3DXVECTOR3 pos, D3DXVECTOR3 rot)
 	m_nLife = LIFE;
 
 	m_nCntStart = 100;
+	m_nCntScore = 0;
 
 	m_bAutoMove = false;
 	m_bSecondJump = false;
@@ -302,6 +305,21 @@ void CPlayerModel::Update(void)
 		m_bLand = true;		//着地した状態にする
 	}
 
+	//スコア増加
+	if (m_nCntStart == 0 && m_bHit == false && m_pos.x <= 70000.0f && m_pos.y >= -100.0f)
+	{
+		if (m_nCntScore == 0)
+		{
+			CScore::Add(3);
+			m_nCntScore = 0;
+		}
+		else
+		{
+			m_nCntScore--;
+			CScore::Add(12);
+		}
+	}
+
 	//画面制限
 	CPlayerModel::Screen();
 
@@ -314,6 +332,7 @@ void CPlayerModel::Update(void)
 
 	pDebugProc->Print("体力 : [%d] \n", m_nLife);
 	pDebugProc->Print("開始まで : [%d] \n", m_nCntStart);
+	pDebugProc->Print("スコアアップ時間 : [%d] \n", m_nCntScore);
 }
 
 //==============================================================
@@ -534,7 +553,8 @@ void CPlayerModel::Hit(void)
 	}
 	else if (m_nLife <= 0)
 	{
-
+		
+		m_bHit = true;
 		//パーティクル生成
 		CParticle::Create(m_pos, D3DXCOLOR(0.1f, 0.4f, 0.5f, 1.0f), TYPE_PLAYER, 30, 40);
 
