@@ -60,6 +60,10 @@ HRESULT CGame::Init(void)
 
 	m_pMap = CMap::Create();
 
+	//ゴールの位置
+	CModel::Create(D3DXVECTOR3(70000.0f, 0.0f, 300.0f), D3DXVECTOR3(0.0f, 0.0f, 0.0f), "data\\MODEL\\goal.x");
+
+	//アイテムの位置
 	CItemX::Create(D3DXVECTOR3(6600.0f, 1200.0f, 0.0f), D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 	CItemX::Create(D3DXVECTOR3(20100.0f, 1000.0f, 0.0f), D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 	CItemX::Create(D3DXVECTOR3(27800.0f, 1200.0f, 0.0f), D3DXVECTOR3(0.0f, 0.0f, 0.0f));
@@ -68,7 +72,7 @@ HRESULT CGame::Init(void)
 	CItemX::Create(D3DXVECTOR3(61800.0f, 1000.0f, 0.0f), D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 
 	//プレイヤーの生成
-	m_pPlayerModel = CPlayerModel::Create(D3DXVECTOR3(/*600*/00.0f, /*80*/0.0f, 0.0f), D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+	m_pPlayerModel = CPlayerModel::Create(D3DXVECTOR3(0.0f, 0.0f, 0.0f), D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 
 	//スコアの生成
 	m_pScore = CScore::Create(D3DXVECTOR3(800.0f, 50.0f, 0.0f));
